@@ -69,25 +69,25 @@
         <div class="services-list">
             <!-- Услуга 1 -->
             <div class="service-item">
-                <img src="images/service1.jpg" alt="PR и реклама">
+                <img src="images/service1.png" alt="PR и реклама">
                 <h3>PR и реклама</h3>
             </div>
             
             <!-- Услуга 2 -->
             <div class="service-item">
-                <img src="images/service2.jpg" alt="SMM – соцсети">
+                <img src="images/service2.png" alt="SMM – соцсети">
                 <h3>SMM – соцсети</h3>
             </div>
             
             <!-- Услуга 3 -->
             <div class="service-item">
-                <img src="images/service3.jpg" alt="SEO – сайт">
+                <img src="images/service3.png" alt="SEO – сайт">
                 <h3>SEO – сайт</h3>
             </div>
             
             <!-- Услуга 4 -->
             <div class="service-item">
-                <img src="images/service4.jpg" alt="SERM – отзывы">
+                <img src="images/service4.png" alt="SERM – отзывы">
                 <h3>SERM – отзывы</h3>
             </div>
         </div>
@@ -100,19 +100,19 @@
         <div class="portfolio-slider">
             <!-- Левая карточка -->
             <div class="portfolio-card">
-                <img src="images/portfolio1.jpg" alt="Проект 1">
+                <img src="images/portfolio1.png" alt="Проект 1">
                 <h3>Клиника стоматологии</h3>
             </div>
             
             <!-- Центральная карточка (главная) -->
             <div class="portfolio-card main-card">
-                <img src="images/portfolio2.jpg" alt="Проект 2">
+                <img src="images/portfolio2.png" alt="Проект 2">
                 <h3>Патриотическое движение</h3>
             </div>
             
             <!-- Правая карточка -->
             <div class="portfolio-card">
-                <img src="images/portfolio3.jpg" alt="Проект 3">
+                <img src="images/portfolio3.png" alt="Проект 3">
                 <h3>Строительная компания</h3>
             </div>
         </div>
