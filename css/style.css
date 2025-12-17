@@ -55,17 +55,35 @@ header {
     gap: 20px;
 }
 
-/* 2. Делаем логотип красивым */
-.logo {
-    color: white;
-    font-size: 32px;
-    font-weight: bold;
-}
 /* 3. Красим все ссылки в меню */
 .main-menu a {
     color: white;
     text-decoration: none;
 }
+
+/* БАННЕР (правильный путь из CSS-файла) */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('../images/banner.png');  /* ← ДВЕ ТОЧКИ! */
+    background-size: cover;
+    background-position: center;
+    height: 768px;
+    /* ... остальные стили ... */
+}
+
+/* ФОН ФУТЕРА */
+footer {
+    background: url('../images/footer.png') no-repeat center center;
+    background-size: cover;
+    /* ... остальные стили ... */
+}
+
+/* ЛОГОТИП В ШАПКЕ (уже в HTML) */
+.logo img {
+    width: 60px;
+    height: 60px;
+}
+
 /* 4. Делаем кнопку красной */
 .cta-button {
     background-color: #FF2400;
