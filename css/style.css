@@ -7,6 +7,22 @@ header {
     padding: 20px 40px;
 }
 
+/* 2. Горизонтальное меню */
+.main-menu {
+    display: flex;               /* Меню тоже flex */
+    list-style: none;            /* Убираем точки у списка */
+    gap: 30px;                   /* Расстояние между пунктами */
+    margin: 0;
+    padding: 0;
+}
+
+.header-contacts {
+    display: flex;
+    color: #FFFFFF
+    align-items: center;
+    gap: 20px;
+}
+
 /* 2. Делаем логотип красивым */
 .logo {
     color: white;
