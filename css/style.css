@@ -1,1 +1,24 @@
-
+/* 1. Делаем шапку темной */
+header {
+    background-color: #191919;
+    padding: 20px;
+}
+/* 2. Делаем логотип красивым */
+.logo {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+}
+/* 3. Красим все ссылки в меню */
+.main-menu a {
+    color: white;
+    text-decoration: none;
+}
+/* 4. Делаем кнопку красной */
+.cta-button {
+    background-color: #FF2400;  /* Красный из твоего брендбука */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
