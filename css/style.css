@@ -2,6 +2,28 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+/* ОБЩИЙ КОНТЕЙНЕР для всего контента */
+.container {
+    max-width: 1200px;   /* Максимальная ширина */
+    margin: 0 auto;      /* Автоматические отступы слева/справа = по центру */
+    padding: 0 20px;     /* Отступы внутри на мобильных */
+}
+
+/* Применяем ко всем секциям */
+header > div {           /* Внутренний контейнер в шапке */
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section, footer > div {  /* Для всех секций и футера */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 /* 1. Делаем шапку flex-контейнером */
 header {
     display: flex;               /* Включаем flexbox */
