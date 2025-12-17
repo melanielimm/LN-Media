@@ -1,8 +1,12 @@
-/* 1. Делаем шапку темной */
+/* 1. Делаем шапку flex-контейнером */
 header {
+    display: flex;               /* Включаем flexbox */
+    justify-content: space-between; /* Распределяем пространство */
+    align-items: center;         /* Выравниваем по центру вертикально */
     background-color: #191919;
-    padding: 20px;
+    padding: 20px 40px;
 }
+
 /* 2. Делаем логотип красивым */
 .logo {
     color: white;
