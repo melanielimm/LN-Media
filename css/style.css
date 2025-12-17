@@ -20,6 +20,12 @@ header {
     padding: 0;
 }
 
+.logo img {
+    width: 60px;        /* Фиксированная ширина */
+    height: 60px;       /* Фиксированная высота */
+    display: block;     /* Убираем лишние отступы */
+}
+
 .header-contacts {
     display: flex;
     color: #FFFFFF
