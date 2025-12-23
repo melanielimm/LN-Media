@@ -9,11 +9,31 @@
     padding: 0 20px;     /* Отступы внутри на мобильных */
 }
 
+img {
+    border-radius: 12px;  /* Закругленные углы */
+}
+
 /* Применяем ко всем секциям */
 header > div {           /* Внутренний контейнер в шапке */
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header-top {
+    background-color: #191919;
+    padding: 10px 0;
+}
+
+.header-top .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -63,6 +83,7 @@ header {
 
 /* БАННЕР (правильный путь из CSS-файла) */
 .hero {
+    border-radius: 0 !important;  /* Без закруглений */
     background: url('../images/banner.png');
     background-size: cover;
     background-position: center;
@@ -91,8 +112,17 @@ header {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
+/* Закругления для фото в "Обо мне" */
+.about-photo img {
+    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* ФОН ФУТЕРА */
 footer {
+    border-radius: 0 !important;  /* Без закруглений */
     background: url('../images/footer.png') no-repeat center center;
     background-size: cover;
     /* ... остальные стили ... */
@@ -104,13 +134,22 @@ footer {
     height: 60px;
 }
 
-/* 4. Делаем кнопку красной */
-.cta-button {
+/* Общий стиль для всех кнопок */
+button, .cta-button {
     background-color: #FF2400;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover, .cta-button:hover {
+    background-color: #cc1d00;
 }
 
 .about {
@@ -139,6 +178,17 @@ footer {
     flex: 1;                     /* Текст занимает оставшееся пространство */
 }
 
+.services {
+    background-color: #191919;  /* Цвет как у шапки */
+    padding: 80px 0;
+}
+
+.services h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
 .services-list {
     display: flex;               /* 4 карточки в строку */
     justify-content: center;     /* Центрируем */
@@ -147,15 +197,40 @@ footer {
 }
 
 .service-item {
+    position: relative;  /* Для позиционирования текста поверх картинки */
     width: 250px;                /* Ширина каждой карточки */
-    text-align: center;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 12px;
 }
 
 .service-item img {
     width: 100%;                 /* Картинка на всю ширину карточки */
-    height: 300px;
+    height: 100%;
     object-fit: cover;           /* Обрезаем если не влезает */
-    border-radius: 8px;
+}
+
+.service-item h3 {
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+    background: rgba(0,0,0,0.6);  /* Полупрозрачный фон для читаемости */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    margin: 0;
+}
+
+/* Чередование положения текста */
+.service-item:nth-child(odd) h3 {
+    top: 0;  /* Для 1 и 3 карточки - текст вверху */
+    border-radius: 12px 12px 0 0;
+}
+
+.service-item:nth-child(even) h3 {
+    bottom: 0;  /* Для 2 и 4 карточки - текст внизу */
+    border-radius: 0 0 12px 12px;
 }
 
 .portfolio-slider {
