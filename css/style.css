@@ -68,6 +68,21 @@ header {
     display: block;     /* Убираем лишние отступы */
 }
 
+/* Ссылка логотипа */
+.logo-link {
+    display: block;
+    text-decoration: none;
+}
+
+/* Обеспечиваем плавный переход на главную */
+.logo-link img {
+    transition: transform 0.3s;
+}
+
+.logo-link:hover img {
+    transform: scale(1.05);
+}
+
 .header-contacts {
     display: flex;
     color: #FFFFFF;
