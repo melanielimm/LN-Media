@@ -28,9 +28,10 @@ body {
     padding: 0;
 }
 
+/* Шапка с черным фоном на всю ширину */
 .header-top {
     background-color: #191919;
-    padding: 10px 0;
+    width: 100%;
 }
 
 .header-top .container {
