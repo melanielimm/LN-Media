@@ -197,6 +197,7 @@ button:hover, .cta-button:hover {
 .services {
     background-color: #191919;  /* Цвет как у шапки */
     padding: 80px 0;
+    width: 100%; /* На всю ширину */
 }
 
 .services h2 {
