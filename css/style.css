@@ -2,6 +2,11 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+/* 1. ЧЕРНЫЙ фон для всей страницы */
+html {
+    background-color: #191919;
+}
+
 /* ОБЩИЙ КОНТЕЙНЕР для всего контента */
 .container {
     max-width: 1200px;   /* Максимальная ширина */
@@ -63,10 +68,17 @@ header {
     gap: 15px; /* Можно увеличить при необходимости */
 }
 
+/* 2. Баннерная область (черная) */
+.main-banner-area {
+    background-color: #191919;
+    width: 100%;
+    padding-top: 80px;
+}
+
 /* 2. Горизонтальное меню */
 .main-menu {
     display: flex;               /* Меню тоже flex */
-    /* list-style: none;            /* Убираем точки у списка */
+    list-style: none;            /* Убираем точки у списка */
     gap: 70px;                   /* Расстояние между пунктами */
     margin: 0;
     padding: 0;
@@ -97,7 +109,7 @@ header {
     flex: 0 0 auto;
     display: flex;
     justify-content: flex-end;
-    /*color: #FFFFFF;*/
+    color: #FFFFFF;
     align-items: center;
     gap: 20px;
 }
@@ -147,6 +159,12 @@ header {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
+/* 3. Блок "Обо мне" (БЕЛЫЙ фон) */
+.about {
+    background-color: white;
+    padding: 80px 0;
+}
+
 /* Закругления для фото в "Обо мне" */
 .about-photo img {
     border-radius: 12px;
@@ -155,40 +173,7 @@ header {
     object-fit: cover;
 }
 
-/* ФОН ФУТЕРА */
-footer {
-    border-radius: 0 !important;  /* Без закруглений */
-    background: url('../images/footer.png') no-repeat center center;
-    background-size: cover;
-    color: white;
-    padding: 60px 0 30px;
-    position: relative;
-}
 
-/* Текст в футере */
-footer h4,
-footer p,
-footer a {
-    color: white;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* Тень как на баннере */
-}
-
-/* Особенно для мелкого текста */
-footer p,
-footer a {
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-/* Навигация в футере */
-footer a {
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-footer a:hover {
-    color: #FF2400;
-}
 
 /* ЛОГОТИП В ШАПКЕ (уже в HTML) */
 .logo img {
@@ -237,11 +222,12 @@ button:hover, .cta-button:hover {
     justify-content: center; /* Выравниваем по вертикали */
 }
 
+/* 4. Блок "Услуги" (ЧЕРНЫЙ фон)
 .services {
-    background-color: #191919;  /* Цвет как у шапки */
+    background-color: #191919;
+    width: 100%;
     padding: 80px 0;
-    width: 100%; /* На всю ширину */
-}
+}*/
 
 .services h2 {
     color: white;
@@ -293,6 +279,12 @@ button:hover, .cta-button:hover {
     border-radius: 0 0 12px 12px;
 }
 
+/* 5. Блок "Проекты" (БЕЛЫЙ фон) */
+.portfolio {
+    background-color: white;
+    padding: 80px 0;
+}
+
 .portfolio-slider {
     display: flex;
     justify-content: center;
@@ -321,3 +313,37 @@ button:hover, .cta-button:hover {
     border-radius: 8px;
 }
 
+/* ФОН ФУТЕРА */
+footer {
+    border-radius: 0 !important;  /* Без закруглений */
+    background: url('../images/footer.png') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 60px 0 30px;
+    position: relative;
+}
+
+/* Текст в футере */
+footer h4,
+footer p,
+footer a {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* Тень как на баннере */
+}
+
+/* Особенно для мелкого текста */
+footer p,
+footer a {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Навигация в футере */
+footer a {
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #FF2400;
+}
