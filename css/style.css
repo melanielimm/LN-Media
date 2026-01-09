@@ -1,121 +1,82 @@
+/* ===== БАЗОВЫЕ НАСТРОЙКИ ===== */
 * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
 
-/* ===== БАЗОВЫЕ НАСТРОЙКИ ===== */
 html, body {
-    margin: 0;
-    padding: 0;
-    background-color: white; /* Белый фон по умолчанию */
+    width: 100%;
+    overflow-x: hidden;
+    background-color: white;
 }
 
-/* ===== ОБЩИЙ СТИЛЬ ДЛЯ ВСЕХ ЗАГОЛОВКОВ ===== */
+/* ===== ОБЩИЙ КОНТЕЙНЕР ===== */
+.container {
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* ===== ОБЩИЕ СТИЛИ ===== */
 h2 {
     text-align: center;
     font-size: 32px;
     margin-bottom: 40px;
 }
 
-/* ОБЩИЙ КОНТЕЙНЕР для всего контента */
-.container {
-    max-width: 1920px;   /* Максимальная ширина */
-    margin: 0 auto;      /* Автоматические отступы слева/справа = по центру */
-    padding: 0 20px;     /* Отступы внутри на мобильных */
-}
-
 img {
-    border-radius: 12px;  /* Закругленные углы */
+    border-radius: 12px;
 }
 
-/* Применяем ко всем секциям */
-header > div {           /* Внутренний контейнер в шапке */
-    max-width: 1920px;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+button, .cta-button {
+    background-color: #FF2400;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-/* ===== ШАПКА (черная полоса) ===== */
+button:hover, .cta-button:hover {
+    background-color: #cc1d00;
+}
+
+/* ===== ШАПКА ===== */
 .header-fixed {
     background-color: #191919;
     width: 100%;
     position: relative;
     z-index: 100;
+    padding: 20px 0;
 }
 
 .header-fixed .container {
-    max-width: 768px;
-    margin: 0 auto;
-    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* 1. Делаем шапку flex-контейнером */
-header {
-    display: flex;               /* Включаем flexbox */
-    justify-content: space-between; /* Распределяем пространство */
-    align-items: center;         /* Выравниваем по центру вертикально */
-    background-color: #191919;
-    padding: 20px 40px;
+/* Логотип */
+.header-fixed img {
+    width: 92px;
+    height: 60px;
 }
 
-/* Увеличиваем отступы между элементами в шапке */
-.header-contacts {
-    gap: 15px; /* Можно увеличить при необходимости */
-}
-
-/* 2. Баннерная область (черная) */
-.main-banner-area {
-    background-color: #191919;
-    width: 100%;
-    height: 768px; /* Фиксированная высота */
-    /*padding-top: 80px;*/
-}
-
-/* 2. Горизонтальное меню */
+/* Основное меню */
 .main-menu {
-    display: flex;               /* Меню тоже flex */
-    list-style: none;            /* Убираем точки у списка */
-    gap: 70px;                   /* Расстояние между пунктами */
+    display: flex;
+    list-style: none;
+    gap: 70px;
     margin: 0;
     padding: 0;
 }
 
-.logo img {
-    width: 60px;        /* Фиксированная ширина */
-    height: 60px;       /* Фиксированная высота */
-    display: block;     /* Убираем лишние отступы */
-}
-
-/* Ссылка логотипа */
-.logo-link {
-    display: block;
-    text-decoration: none;
-}
-
-/* Обеспечиваем плавный переход на главную */
-.logo-link img {
-    transition: transform 0.3s;
-}
-
-.logo-link:hover img {
-    transform: scale(1.05);
-}
-
-.header-contacts {
-    flex: 0 0 auto;
-    display: flex;
-    justify-content: flex-end;
-    color: #FFFFFF;
-    align-items: center;
-    gap: 20px;
-}
-
-/* 3. Красим все ссылки в меню */
 .main-menu a {
     color: white;
     text-decoration: none;
@@ -129,30 +90,70 @@ header {
     color: #FF2400;
 }
 
-/* ===== ГЛАВНЫЙ БАННЕР (черная полоса) ===== */
-.hero-section {
-    background-color: #191919; /* Черный фон на всю ширину */
-    width: 100%;
-    padding: 0;
-    margin: 0;
+/* Контакты в шапке */
+.header-contacts {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: white;
 }
 
-.hero-section .hero {
-    max-width: 768px; /* Контент ограничен */
+.header-contacts .phone {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Бургер-меню */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.burger-menu div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+
+/* ===== ГЛАВНЫЙ БАННЕР ===== */
+.hero-section {
+    background-color: #191919;
+    width: 100%;
     height: 768px;
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.hero-section .container {
+    height: 100%;
+}
+
+.hero {
+    width: 100%;
+    height: 100%;
     background: url('../images/banner.png') no-repeat center center;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    border-radius: 0;
+}
+
+.hero-content {
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
 }
 
 .hero h1 {
-    font-size: 48px;  /* ← Крупный текст */
+    font-size: 48px;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* ← Читаемость на любом фоне */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .hero p {
@@ -161,229 +162,230 @@ header {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
-/* ===== ОБО МНЕ (белая полоса) ===== */
+/* ===== БЛОК "ОБО МНЕ" ===== */
 .about-section {
-    background-color: white; /* Белый фон на всю ширину */
+    background-color: white;
     width: 100%;
     padding: 80px 0;
-    margin: 0;
 }
 
-.about-section .container {
-    max-width: 768px;
-    margin: 0 auto;
-    padding: 0 20px;
+.about-content {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 60px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-/* Уменьшаем фото на 1/3 */
 .about-photo {
-    width: 367px;
-    height: 367px;
-    border-radius: 12px;
-    overflow: hidden;
     flex-shrink: 0;
-}
-
-/* ЛОГОТИП В ШАПКЕ (уже в HTML) */
-.logo img {
-    width: 60px;
-    height: 60px;
-}
-
-/* Общий стиль для всех кнопок */
-button, .cta-button {
-    background-color: #FF2400;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover, .cta-button:hover {
-    background-color: #cc1d00;
-}
-
-.about {
-    display: flex;               /* Делаем flex-контейнер */
-    align-items: stretch;         /* Выравниваем по центру вертикально */
-    gap: 60px;                   /* Расстояние между фото и текстом */
-    padding: 80px 40px;
-}
-
-.about-photo {
-    /*flex-shrink: 0;              /* Фото не сжимается */
     width: 400px;
     height: 400px;
     border-radius: 12px;
     overflow: hidden;
 }
 
-.about-text {
-    flex: 1;                     /* Текст занимает оставшееся пространство */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Выравниваем по вертикали */
+.about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* ===== УСЛУГИ (черная полоса) ===== */
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.about-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* ===== БЛОК "УСЛУГИ" ===== */
 .services-section {
-    background-color: #191919; /* Черный фон на всю ширину */
+    background-color: #191919;
     width: 100%;
     padding: 80px 0;
-    margin: 0;
 }
 
-.services-section .container {
-    max-width: 768px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.services h2 {
+.services-section h2 {
     color: white;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 .services-list {
-    display: flex;               /* 4 карточки в строку */
-    justify-content: center;     /* Центрируем */
-    gap: 30px;                   /* Расстояние между карточками */
-    flex-wrap: wrap;             /* Перенос на новую строку если не помещается */
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .service-item {
-    position: relative;  /* Для позиционирования текста поверх картинки */
-    width: 250px;                /* Ширина каждой карточки */
-    height: 300px;
+    position: relative;
+    width: 300px;
+    height: 350px;
     overflow: hidden;
     border-radius: 12px;
+    transition: transform 0.3s;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
 }
 
 .service-item img {
-    width: 100%;                 /* Картинка на всю ширину карточки */
+    width: 100%;
     height: 100%;
-    object-fit: cover;           /* Обрезаем если не влезает */
+    object-fit: cover;
 }
 
 .service-item h3 {
     position: absolute;
     color: white;
-    font-size: 20px;
+    font-size: 22px;
     text-align: center;
     width: 100%;
-    padding: 15px;
-    background: rgba(0,0,0,0.6);  /* Полупрозрачный фон для читаемости */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    padding: 20px;
+    background: rgba(0,0,0,0.6);
     margin: 0;
 }
 
 /* Чередование положения текста */
 .service-item:nth-child(odd) h3 {
-    top: 0;  /* Для 1 и 3 карточки - текст вверху */
+    top: 0;
     border-radius: 12px 12px 0 0;
 }
 
 .service-item:nth-child(even) h3 {
-    bottom: 0;  /* Для 2 и 4 карточки - текст внизу */
+    bottom: 0;
     border-radius: 0 0 12px 12px;
 }
 
-/* ===== ПРОЕКТЫ (белая полоса) ===== */
+/* ===== БЛОК "ПОРТФОЛИО" ===== */
 .portfolio-section {
-    background-color: white; /* Белый фон на всю ширину */
+    background-color: white;
     width: 100%;
     padding: 80px 0;
-    margin: 0;
 }
 
 .portfolio-section .container {
-    max-width: 768px;
-    margin: 0 auto;
-    padding: 0 20px;
+    position: relative;
 }
 
 .portfolio-slider {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto 60px;
 }
 
 .portfolio-card {
-    width: 300px;                /* Ширина карточки */
-    transition: transform 0.3s;  /* Плавное увеличение при наведении */
+    width: 350px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 12px;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .portfolio-card:hover {
-    transform: scale(1.05);      /* Увеличиваем при наведении */
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
-/* Центральная карточка больше */
 .portfolio-card.main-card {
-    width: 350px;
-    margin-top: -20px;           /* Приподнимаем для эффекта */
+    width: 400px;
+    height: 450px;
+    margin-top: -25px;
 }
 
 .portfolio-card img {
     width: 100%;
-    height: 200px;
+    height: 300px;
     object-fit: cover;
-    border-radius: 8px;
 }
 
-/* ===== ПОДВАЛ (с картинкой на всю ширину) ===== */
+.portfolio-card.main-card img {
+    height: 350px;
+}
+
+.portfolio-card h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    color: #191919;
+}
+
+/* Стрелки слайдера */
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.slider-arrow {
+    background: #191919;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.slider-arrow:hover {
+    background: #FF2400;
+    transform: scale(1.1);
+}
+
+/* ===== ПОДВАЛ ===== */
 .footer-section {
     background: url('../images/footer.png') no-repeat center center;
     background-size: cover;
     width: 100%;
-    padding: 60px 0 30px;
-    margin: 0;
-}
-
-.footer-section .container {
-    max-width: 768px;
-    margin: 0 auto;
-    padding: 0 20px;
+    padding: 80px 0 30px;
+    color: white;
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    max-width: 1200px;
+    gap: 80px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
-/* Левая колонка: Другие проекты */
+/* Левая колонка */
 .footer-projects h4 {
-    margin-bottom: 20px;
-    font-size: 18px;
+    font-size: 24px;
+    margin-bottom: 30px;
     color: white;
 }
 
 .footer-projects ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
 .footer-projects li {
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .project-link {
     color: white;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
     transition: color 0.3s;
     display: inline-block;
     padding: 5px 0;
@@ -395,8 +397,8 @@ button:hover, .cta-button:hover {
 
 .project-link.current {
     color: #FF2400;
-    cursor: default;
     opacity: 0.8;
+    cursor: default;
 }
 
 /* Правая колонка */
@@ -404,30 +406,26 @@ button:hover, .cta-button:hover {
     text-align: right;
 }
 
-/* Логотип (в 2 раза больше шапки) */
 .footer-logo {
-    margin-bottom: 30px;
-    display: inline-block;
+    margin-bottom: 40px;
 }
 
 .footer-logo img {
-    width: 184px;  /* 92px * 2 */
-    height: auto;
+    width: 184px;
+    height: 120px;
 }
 
-/* Контакты с иконками */
 .footer-contacts {
-    margin-bottom: 30px;
-    text-align: right;
+    margin-bottom: 40px;
 }
 
 .contact-item {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 10px;
-    margin-bottom: 15px;
-    font-size: 16px;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 18px;
 }
 
 .contact-icon {
@@ -435,10 +433,9 @@ button:hover, .cta-button:hover {
     height: 24px;
 }
 
-/* Социальные сети */
 .footer-social {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     justify-content: flex-end;
 }
 
@@ -452,29 +449,87 @@ button:hover, .cta-button:hover {
 }
 
 .social-icon {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
 }
 
 .social-icon:hover {
-    filter: brightness(0) invert(0.7); /* Серые при наведении */
+    filter: brightness(0) invert(0.7);
 }
 
 /* Копирайт */
 .copyright {
     text-align: center;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    font-size: 14px;
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 16px;
     color: rgba(255,255,255,0.7);
 }
 
-/* Адаптивность для мобильных */
-@media (max-width: 1920px) {
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 1200px) {
+    .about-content {
+        max-width: 1000px;
+        gap: 40px;
+    }
+    
+    .services-list,
+    .portfolio-slider {
+        max-width: 1000px;
+    }
+    
+    .service-item {
+        width: 250px;
+        height: 300px;
+    }
+    
+    .portfolio-card {
+        width: 300px;
+        height: 350px;
+    }
+    
+    .portfolio-card.main-card {
+        width: 350px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 992px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-text h2 {
+        text-align: center;
+    }
+    
+    .services-list {
+        gap: 30px;
+    }
+    
+    .service-item {
+        width: 220px;
+        height: 280px;
+    }
+    
+    .portfolio-slider {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .portfolio-card,
+    .portfolio-card.main-card {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        margin-top: 0;
+    }
+    
     .footer-content {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 50px;
         text-align: center;
     }
     
@@ -488,5 +543,37 @@ button:hover, .cta-button:hover {
     
     .footer-social {
         justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .main-menu {
+        display: none;
+    }
+    
+    .burger-menu {
+        display: flex;
+    }
+    
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .hero p {
+        font-size: 20px;
+    }
+    
+    .about-photo {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .service-item {
+        width: 100%;
+        max-width: 300px;
     }
 }
