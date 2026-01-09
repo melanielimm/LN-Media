@@ -3,7 +3,9 @@
 }
 
 /* 1. ЧЕРНЫЙ фон для всей страницы */
-html {
+html, body {
+    margin: 0;
+    padding: 0
     background-color: #191919;
 }
 
@@ -28,20 +30,16 @@ header > div {           /* Внутренний контейнер в шапк�
     align-items: center;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-}
-
 /* Шапка с черным фоном на всю ширину */
 .header-top {
     background-color: #191919;
     width: 100%;
+    position: relative;
+    z-index: 100;
 }
 
 .header-top .container {
     max-width: 1920px;
-    width: 100%;
     margin: 0 auto;
     padding: 10px 20px;
     display: flex;
@@ -132,14 +130,17 @@ header {
 /* БАННЕР (правильный путь из CSS-файла) */
 .hero {
     border-radius: 0 !important;  /* Без закруглений */
-    background: url('../images/banner.png');
+    background: url('../images/banner.png') no-repeat center center;
     background-size: cover;
     background-position: center;
     height: 768px;
-    width: 100%;  /* ← Теперь на всю ширину */
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .hero-content {
@@ -163,7 +164,10 @@ header {
 /* 3. Блок "Обо мне" (БЕЛЫЙ фон) */
 .about {
     background-color: white;
+    max-width: 1920px;
+    width: 100%;
     padding: 80px 0;
+    margin: 0 auto;
 }
 
 /* Закругления для фото в "Обо мне" */
@@ -225,6 +229,7 @@ button:hover, .cta-button:hover {
     background-color: #191919;
     width: 100%;
     padding: 80px 0;
+    margin: 0;
 }
 
 .services h2 {
