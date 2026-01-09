@@ -316,37 +316,151 @@ button:hover, .cta-button:hover {
     border-radius: 8px;
 }
 
-/* ФОН ФУТЕРА */
+/* ФУТЕР */
 footer {
-    border-radius: 0 !important;  /* Без закруглений */
-    background: url('../images/footer.png') no-repeat center center;
+    background: linear-gradient(rgba(25,25,25,0.9), rgba(25,25,25,0.9)),
+                url('images/footer.png') no-repeat center center;
     background-size: cover;
     color: white;
     padding: 60px 0 30px;
-    position: relative;
 }
 
-/* Текст в футере */
-footer h4,
-footer p,
-footer a {
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Левая колонка: Другие проекты */
+.footer-projects h4 {
+    margin-bottom: 20px;
+    font-size: 18px;
     color: white;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* Тень как на баннере */
 }
 
-/* Особенно для мелкого текста */
-footer p,
-footer a {
-    font-size: 16px;
-    line-height: 1.6;
+.footer-projects ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-/* Навигация в футере */
-footer a {
+.footer-projects li {
+    margin-bottom: 12px;
+}
+
+.project-link {
+    color: white;
     text-decoration: none;
+    font-size: 16px;
     transition: color 0.3s;
+    display: inline-block;
+    padding: 5px 0;
 }
 
-footer a:hover {
+.project-link:hover {
     color: #FF2400;
+}
+
+.project-link.current {
+    color: #FF2400;
+    cursor: default;
+    opacity: 0.8;
+}
+
+/* Правая колонка */
+.footer-right {
+    text-align: right;
+}
+
+/* Логотип (в 2 раза больше шапки) */
+.footer-logo {
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+.footer-logo img {
+    width: 184px;  /* 92px * 2 */
+    height: auto;
+    filter: brightness(0) invert(1); /* Делаем лого белым */
+}
+
+/* Контакты с иконками */
+.footer-contacts {
+    margin-bottom: 30px;
+    text-align: right;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.contact-icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1); /* Белые иконки */
+}
+
+/* Социальные сети */
+.footer-social {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.social-link {
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.social-link:hover {
+    transform: scale(1.1);
+}
+
+.social-icon {
+    width: 32px;
+    height: 32px;
+    filter: brightness(0) invert(1); /* Белые иконки */
+}
+
+.social-icon:hover {
+    filter: brightness(0) invert(0.7); /* Серые при наведении */
+}
+
+/* Копирайт */
+.copyright {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .footer-right {
+        text-align: center;
+    }
+    
+    .contact-item {
+        justify-content: center;
+    }
+    
+    .footer-social {
+        justify-content: center;
+    }
 }
