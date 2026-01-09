@@ -206,12 +206,11 @@ button:hover, .cta-button:hover {
 }
 
 .about-photo {
-    flex-shrink: 0;              /* Фото не сжимается */
-    width: 550px;
-    height: 550px;
+    /*flex-shrink: 0;              /* Фото не сжимается */
+    width: 400px;
+    height: 400px;
     border-radius: 12px;
     overflow: hidden;
-    background: #eee;            /* Заглушка для фото */
 }
 
 .about-text {
