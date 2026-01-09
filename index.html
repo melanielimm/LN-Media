@@ -14,9 +14,8 @@
 </head>
 <body>
     <!-- ШАПКА САЙТА -->
-    <header>
-        <div class="header-top">
-            <div class="container">  <!-- ← Этот контейнер ограничивает ширину -->
+    <header class="header-fixed">
+        <div class="container">
             <!-- Логотип -->
             <img src="images/logo.png" alt="Логотип Назиля Латыпова" width="92" height="60">
         
@@ -45,24 +44,26 @@
         </div>
     </header>
 
-            <!-- ГЛАВНЫЙ БАННЕР -->
-            <section class="hero">
-                <div class="hero-content">
-                    <h1>SMM, который увеличивает прибыль</h1>
-                    <p>Профессиональное ведение соцсетей для вашего бизнеса</p>
-                    <button>Заказать аудит</button>
-                </div>
-            </section>  
+    <!-- ГЛАВНЫЙ БАННЕР (черная полоса) -->
+    <section class="hero-section">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>SMM, который увеличивает прибыль</h1>
+                <p>Профессиональное ведение соцсетей для вашего бизнеса</p>
+                <button>Заказать аудит</button>
+            </div>
+        </div>
+    </section>
 
     <!-- БЛОК "ОБО МНЕ" -->
-    <section class="about" id="about">
-        <!-- Фото слева -->
-        <div class="about-photo">
-            <img src="images/my-photo.jpg" alt="Назиля Латыпова">
-        </div>
+    <section class="about-section">
+        <div class="container">
+            <div class="about-photo">
+                <img src="images/my-photo.jpg" alt="Назиля Латыпова">
+            </div>
         
         <!-- Текст справа -->
-        <div class="about-text">
+     <div class="about-text">
             <h2>Приветствую вас на своей digital-площадке!</h2>
             <p>Меня зовут <strong>Назиля</strong>. Я SMM-специалист — так называемый архитектор онлайн-присутствия, который за 5 лет в интернет-маркетинге научился вести сайты, соцсети, а также <strong>строить мосты между брендами и их аудиторией</strong>.</p>
             <p>Мой опыт — это палитра проектов из абсолютно разных сфер: от элитной стоматологии и строительных компаний до уютных спа-салонов и патриотических движений. Каждый проект — это уникальная история, где я помогла <strong>увеличить охваты, запустить виральные рекламные кампании и превратить подписчиков в лояльных клиентов</strong>.</p>
@@ -71,8 +72,9 @@
     </section>
 
     <!-- БЛОК "УСЛУГИ" -->
-    <section class="services" id="services">
-        <h2>Мои услуги</h2>
+    <section class="services-section">
+        <div class="container">
+            <h2>Мои услуги</h2>
         
         <div class="services-list">
             <!-- Услуга 1 -->
@@ -102,8 +104,9 @@
     </section>
 
     <!-- БЛОК "ПОРТФОЛИО" -->
-    <section class="portfolio" id="portfolio">
-        <h2>Проекты</h2>
+    <section class="portfolio-section">
+        <div class="container">
+            <h2>Проекты</h2>
         
         <div class="portfolio-slider">
             <!-- Левая карточка -->
@@ -131,8 +134,8 @@
     </section>
 
     <!-- ПОДВАЛ САЙТА -->
-    <footer id="contacts">
-        <div class="footer-content">
+    <footer class="footer-section">
+        <div class="container">
             <!-- Левая колонка: Другие проекты -->
             <div class="footer-projects">
                 <h4>Другие проекты</h4>
