@@ -318,7 +318,7 @@ button:hover, .cta-button:hover {
 
 /* ФУТЕР */
 footer {
-    background: linear-gradient(rgba(25,25,25,0.9), rgba(25,25,25,0.9)),
+    background: linear-gradient(rgba(25,25,25,0.5), rgba(25,25,25,0.5)),
                 url('images/footer.png') no-repeat center center;
     background-size: cover;
     color: white;
@@ -384,7 +384,6 @@ footer {
 .footer-logo img {
     width: 184px;  /* 92px * 2 */
     height: auto;
-    filter: brightness(0) invert(1); /* Делаем лого белым */
 }
 
 /* Контакты с иконками */
@@ -403,9 +402,8 @@ footer {
 }
 
 .contact-icon {
-    width: 20px;
-    height: 20px;
-    filter: brightness(0) invert(1); /* Белые иконки */
+    width: 24px;
+    height: 24px;
 }
 
 /* Социальные сети */
@@ -427,7 +425,6 @@ footer {
 .social-icon {
     width: 32px;
     height: 32px;
-    filter: brightness(0) invert(1); /* Белые иконки */
 }
 
 .social-icon:hover {
