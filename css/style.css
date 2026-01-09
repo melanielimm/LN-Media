@@ -2,11 +2,18 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-/* 1. ЧЕРНЫЙ фон для всей страницы */
+/* ===== БАЗОВЫЕ НАСТРОЙКИ ===== */
 html, body {
-    background-color: #191919;
     margin: 0;
-    padding: 0
+    padding: 0;
+    background-color: white; /* Белый фон по умолчанию */
+}
+
+/* ===== ОБЩИЙ СТИЛЬ ДЛЯ ВСЕХ ЗАГОЛОВКОВ ===== */
+h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
 }
 
 /* ОБЩИЙ КОНТЕЙНЕР для всего контента */
@@ -30,26 +37,21 @@ header > div {           /* Внутренний контейнер в шапк�
     align-items: center;
 }
 
-/* Шапка с черным фоном на всю ширину */
-.header-top {
+/* ===== ШАПКА (черная полоса) ===== */
+.header-fixed {
     background-color: #191919;
     width: 100%;
     position: relative;
     z-index: 100;
 }
 
-.header-top .container {
-    max-width: 1920px;
+.header-fixed .container {
+    max-width: 768px;
     margin: 0 auto;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-section, footer > div {  /* Для всех секций и футера */
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 /* 1. Делаем шапку flex-контейнером */
@@ -127,26 +129,24 @@ header {
     color: #FF2400;
 }
 
-/* БАННЕР (правильный путь из CSS-файла) */
-.hero {
-    border-radius: 0 !important;  /* Без закруглений */
-    background: url('../images/banner.png') no-repeat center center;
-    background-size: cover;
-    background-position: center;
-    height: 768px;
+/* ===== ГЛАВНЫЙ БАННЕР (черная полоса) ===== */
+.hero-section {
+    background-color: #191919; /* Черный фон на всю ширину */
     width: 100%;
     padding: 0;
+    margin: 0;
+}
+
+.hero-section .hero {
+    max-width: 768px; /* Контент ограничен */
+    height: 768px;
     margin: 0 auto;
+    background: url('../images/banner.png') no-repeat center center;
+    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-}
-
-.hero-content {
-    text-align: center;
-    color: white;
-    padding: 20px;
 }
 
 .hero h1 {
@@ -161,21 +161,30 @@ header {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
-/* 3. Блок "Обо мне" (БЕЛЫЙ фон) */
-.about {
-    background-color: white;
-    max-width: 1920px;
+/* ===== ОБО МНЕ (белая полоса) ===== */
+.about-section {
+    background-color: white; /* Белый фон на всю ширину */
     width: 100%;
     padding: 80px 0;
-    margin: 0 auto;
+    margin: 0;
 }
 
-/* Закругления для фото в "Обо мне" */
-.about-photo img {
+.about-section .container {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Уменьшаем фото на 1/3 */
+.about-photo {
+    width: 367px;
+    height: 367px;
     border-radius: 12px;
-    width: 400px;
-    height: 400px;
-    object-fit: cover;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
 /* ЛОГОТИП В ШАПКЕ (уже в HTML) */
@@ -224,12 +233,18 @@ button:hover, .cta-button:hover {
     justify-content: center; /* Выравниваем по вертикали */
 }
 
-4. Блок "Услуги" (ЧЕРНЫЙ фон)
-.services {
-    background-color: #191919;
+/* ===== УСЛУГИ (черная полоса) ===== */
+.services-section {
+    background-color: #191919; /* Черный фон на всю ширину */
     width: 100%;
     padding: 80px 0;
     margin: 0;
+}
+
+.services-section .container {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .services h2 {
@@ -282,11 +297,18 @@ button:hover, .cta-button:hover {
     border-radius: 0 0 12px 12px;
 }
 
-/* 5. Блок "Проекты" (БЕЛЫЙ фон) */
-.portfolio {
-    background-color: white;
-    padding: 80px 0;
+/* ===== ПРОЕКТЫ (белая полоса) ===== */
+.portfolio-section {
+    background-color: white; /* Белый фон на всю ширину */
     width: 100%;
+    padding: 80px 0;
+    margin: 0;
+}
+
+.portfolio-section .container {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .portfolio-slider {
@@ -317,12 +339,19 @@ button:hover, .cta-button:hover {
     border-radius: 8px;
 }
 
-/* ФУТЕР */
-footer {
-    background: linear-gradient(rgba(25,25,25,0.5), rgba(25,25,25,0.5)),
-                url('images/footer.png') no-repeat center center;
+/* ===== ПОДВАЛ (с картинкой на всю ширину) ===== */
+.footer-section {
+    background: url('../images/footer.png') no-repeat center center;
     background-size: cover;
+    width: 100%;
     padding: 60px 0 30px;
+    margin: 0;
+}
+
+.footer-section .container {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .footer-content {
