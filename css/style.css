@@ -443,7 +443,7 @@ footer {
 }
 
 /* Адаптивность для мобильных */
-@media (max-width: 768px) {
+@media (max-width: 1920px) {
     .footer-content {
         grid-template-columns: 1fr;
         gap: 40px;
