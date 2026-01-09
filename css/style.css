@@ -66,7 +66,7 @@ header {
 /* 2. Горизонтальное меню */
 .main-menu {
     display: flex;               /* Меню тоже flex */
-    list-style: none;            /* Убираем точки у списка */
+    /* list-style: none;            /* Убираем точки у списка */
     gap: 70px;                   /* Расстояние между пунктами */
     margin: 0;
     padding: 0;
@@ -94,8 +94,10 @@ header {
 }
 
 .header-contacts {
+    flex: 0 0 auto;
     display: flex;
-    color: #FFFFFF;
+    justify-content: flex-end;
+    /*color: #FFFFFF;*/
     align-items: center;
     gap: 20px;
 }
@@ -104,6 +106,14 @@ header {
 .main-menu a {
     color: white;
     text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px 0;
+    transition: color 0.3s;
+}
+
+.main-menu a:hover {
+    color: #FF2400;
 }
 
 /* БАННЕР (правильный путь из CSS-файла) */
@@ -150,7 +160,34 @@ footer {
     border-radius: 0 !important;  /* Без закруглений */
     background: url('../images/footer.png') no-repeat center center;
     background-size: cover;
-    /* ... остальные стили ... */
+    color: white;
+    padding: 60px 0 30px;
+    position: relative;
+}
+
+/* Текст в футере */
+footer h4,
+footer p,
+footer a {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* Тень как на баннере */
+}
+
+/* Особенно для мелкого текста */
+footer p,
+footer a {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Навигация в футере */
+footer a {
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #FF2400;
 }
 
 /* ЛОГОТИП В ШАПКЕ (уже в HTML) */
@@ -179,15 +216,8 @@ button:hover, .cta-button:hover {
 
 .about {
     display: flex;               /* Делаем flex-контейнер */
-    align-items: center;         /* Выравниваем по центру вертикально */
+    align-items: stretch;         /* Выравниваем по центру вертикально */
     gap: 60px;                   /* Расстояние между фото и текстом */
-    padding: 80px 40px;
-}
-
-.about {
-    display: flex;             
-    align-items: center;  
-    gap: 60px;                 
     padding: 80px 40px;
 }
 
@@ -196,11 +226,15 @@ button:hover, .cta-button:hover {
     width: 550px;
     height: 550px;
     border-radius: 12px;
+    overflow: hidden;
     background: #eee;            /* Заглушка для фото */
 }
 
 .about-text {
     flex: 1;                     /* Текст занимает оставшееся пространство */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Выравниваем по вертикали */
 }
 
 .services {
