@@ -9,7 +9,7 @@ html {
 
 /* ОБЩИЙ КОНТЕЙНЕР для всего контента */
 .container {
-    max-width: 1200px;   /* Максимальная ширина */
+    max-width: 1920px;   /* Максимальная ширина */
     margin: 0 auto;      /* Автоматические отступы слева/справа = по центру */
     padding: 0 20px;     /* Отступы внутри на мобильных */
 }
@@ -20,7 +20,7 @@ img {
 
 /* Применяем ко всем секциям */
 header > div {           /* Внутренний контейнер в шапке */
-    max-width: 1200px;
+    max-width: 1920px;
     width: 100%;
     margin: 0 auto;
     display: flex;
@@ -40,7 +40,7 @@ body {
 }
 
 .header-top .container {
-    max-width: 1200px;
+    max-width: 1920px;
     width: 100%;
     margin: 0 auto;
     padding: 10px 20px;
@@ -170,8 +170,8 @@ header {
 /* Закругления для фото в "Обо мне" */
 .about-photo img {
     border-radius: 12px;
-    width: 100%;
-    height: 100%;
+    width: 367px; /* Было 550px, уменьшили на 1/3 */
+    height: 367px; /* Было 550px */
     object-fit: cover;
 }
 
