@@ -4,9 +4,9 @@
 
 /* 1. ЧЕРНЫЙ фон для всей страницы */
 html, body {
+    background-color: #191919;
     margin: 0;
     padding: 0
-    background-color: #191919;
 }
 
 /* ОБЩИЙ КОНТЕЙНЕР для всего контента */
@@ -322,7 +322,6 @@ footer {
     background: linear-gradient(rgba(25,25,25,0.5), rgba(25,25,25,0.5)),
                 url('images/footer.png') no-repeat center center;
     background-size: cover;
-    color: white;
     padding: 60px 0 30px;
 }
 
