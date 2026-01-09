@@ -163,7 +163,6 @@ header {
 /* 3. Блок "Обо мне" (БЕЛЫЙ фон) */
 .about {
     background-color: white;
-    width: 100%;
     padding: 80px 0;
 }
 
@@ -174,8 +173,6 @@ header {
     height: 400px;
     object-fit: cover;
 }
-
-
 
 /* ЛОГОТИП В ШАПКЕ (уже в HTML) */
 .logo img {
