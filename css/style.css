@@ -358,11 +358,28 @@ button:hover, .cta-button:hover {
 .portfolio-section .container {
     position: relative;
     max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
+.portfolio-section h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #191919;
+    margin-bottom: 60px;
+    font-weight: 700;
+}
+
+/* Контейнер слайдера */
 .portfolio-slider-container {
     position: relative;
     overflow: hidden;
+    width: 100%;
+}
+
+/* Скрываем радиокнопки */
+.portfolio-slider-container input[type="radio"] {
+    display: none;
 }
 
 /* Каждый слайд (проект) */
@@ -372,12 +389,27 @@ button:hover, .cta-button:hover {
     border-radius: 12px;
     padding: 40px;
     border: 1px solid #e0e0e0;
-    min-height: 450px; /* ФИКСИРОВАННАЯ ВЫСОТА */
-    max-width: 1100px; /* ШИРЕ КАК У "ОБО МНЕ" */
+    min-height: 450px;
+    width: 100%;
     margin: 0 auto;
     opacity: 0;
     transform: translateY(20px);
     animation: slideAppear 0.8s ease forwards;
+}
+
+@keyframes slideAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Показываем активный слайд */
+#project-1:checked ~ .portfolio-slide:nth-of-type(1),
+#project-2:checked ~ .portfolio-slide:nth-of-type(2),
+#project-3:checked ~ .portfolio-slide:nth-of-type(3),
+#project-4:checked ~ .portfolio-slide:nth-of-type(4) {
+    display: block;
 }
 
 /* Контент слайда */
@@ -385,13 +417,13 @@ button:hover, .cta-button:hover {
     display: flex;
     align-items: flex-start;
     gap: 60px;
-    height: 100%; /* ЗАПОЛНЯЕМ ВСЮ ВЫСОТУ */
+    height: 100%;
 }
 
 /* Текст слева */
 .portfolio-text {
     flex: 1;
-    min-height: 370px; /* ДЛЯ ВЫРАВНИВАНИЯ ВЫСОТЫ */
+    min-height: 370px;
 }
 
 .portfolio-text h3 {
@@ -400,6 +432,7 @@ button:hover, .cta-button:hover {
     margin-bottom: 20px;
     border-bottom: 3px solid #FF2400;
     padding-bottom: 12px;
+    font-weight: 600;
 }
 
 .portfolio-text p {
@@ -409,17 +442,28 @@ button:hover, .cta-button:hover {
     color: #333;
 }
 
-/* Картинка справа (квадратная) - БЕЗ ТЕНИ */
+.portfolio-text strong {
+    color: #191919;
+    font-weight: 600;
+}
+
+/* Картинка справа (квадратная) */
 .portfolio-image {
     flex-shrink: 0;
     width: 400px;
     height: 400px;
     border-radius: 12px;
     overflow: hidden;
-    /* УБИРАЕМ ТЕНЬ: box-shadow: 0 8px 25px rgba(0,0,0,0.15); */
 }
 
-/* ===== ТОЧКИ-ИНДИКАТОРЫ - КАК БЫЛО ===== */
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ===== ТОЧКИ-ИНДИКАТОРЫ ===== */
 .slider-dots {
     display: flex;
     justify-content: center;
@@ -433,13 +477,12 @@ button:hover, .cta-button:hover {
     border-radius: 50%;
     background: #ddd;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: none;
     border: none;
 }
 
 .slider-dot:hover {
     background: #FF2400;
-    transform: scale(1.2);
 }
 
 /* Активная точка */
@@ -448,12 +491,7 @@ button:hover, .cta-button:hover {
 #project-3:checked ~ .slider-dots .slider-dot:nth-child(3),
 #project-4:checked ~ .slider-dots .slider-dot:nth-child(4) {
     background: #FF2400;
-    transform: scale(1.2);
-}
-
-/* УБИРАЕМ подсказки и цифры */
-.slider-dot::after {
-    display: none; /* УБИРАЕМ подсказку */
+    transform: none;
 }
 
 /* ===== АДАПТИВНОСТЬ ===== */
@@ -491,7 +529,32 @@ button:hover, .cta-button:hover {
     }
     
     .portfolio-text {
-        min-height: auto; /* НА МОБИЛЬНЫХ АВТО ВЫСОТА */
+        min-height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-section {
+        padding: 60px 0;
+    }
+    
+    .portfolio-slide {
+        padding: 25px;
+        min-height: auto;
+    }
+    
+    .portfolio-text h3 {
+        font-size: 24px;
+    }
+    
+    .portfolio-text p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    
+    .slider-dots {
+        gap: 12px;
+        margin-top: 30px;
     }
 }
 
