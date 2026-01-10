@@ -2,63 +2,32 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    
-    <!-- Favicon для разных устройств -->
     <link rel="icon" href="favicon.png" type="image/x-icon">
-    <link rel="apple-touch-icon" href="favicon.png">
-    
-    <!-- Предзагрузка шрифтов -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Предзагрузка критического CSS -->
-    <link rel="preload" href="css/style.css" as="style">
-    
-    <!-- Предзагрузка изображений -->
-    <link rel="preload" href="images/logo.png" as="image" type="image/png">
-    <link rel="preload" href="images/banner.png" as="image" type="image/png">
-    
+    <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Назиля Латыпова | SMM-специалист</title>
-    
-    <!-- Мета-теги для SEO и соцсетей -->
     <meta name="description" content="Профессиональный SMM-специалист. Продвижение бизнеса в соцсетях, ведение сайтов, рекламные кампании.">
-    <meta name="keywords" content="SMM, продвижение, социальные сети, маркетинг, реклама">
-
-    <!-- Основная таблица стилей -->
-    <link rel="stylesheet" href="css/style.css">
 </head>
     
 <body>
-    <!-- ШАПКА САЙТА -->
+    <!-- ШАПКА -->
     <header class="header-fixed">
         <div class="container">
-            <!-- Логотип -->
-            <img src="images/my_logo.png" alt="Логотип Назиля Латыпова" width="92" height="60">
+            <img src="images/my_logo.png" alt="Логотип" class="header-logo">
         
-            <!-- Основное меню -->
             <nav>
                 <ul class="main-menu">
-                    <!-- Пункт с выпадающим меню -->
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">Другие задания</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="task1.html" class="task-link">Задание 1</a></li>
-                            <li><a href="task2.html" class="task-link">Задание 2</a></li>
-                            <li><a href="task3.html" class="task-link">Задание 3</a></li>
-                            <li><a href="task4.html" class="task-link">Задание 4</a></li>
-                            <li><a href="task5.html" class="task-link">Задание 5</a></li>
-                            <li><a href="coursework.html" class="task-link">Курсовая работа</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="services.html">Услуги</a></li>
-                    <li><a href="#portfolio">Проекты</a></li>
-                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="task1.html">1</a></li>
+                    <li><a href="task2.html">2</a></li>
+                    <li><a href="task3.html">3</a></li>
+                    <li><a href="task4.html">4</a></li>
+                    <li><a href="task5.html">5</a></li>
                 </ul>
             </nav>
         
-            <!-- Контакты в шапке -->
             <div class="header-contacts">
                 <span class="phone">+7 (999) 217-27-**</span>
                 <button class="cta-button">Позвонить</button>
@@ -66,7 +35,7 @@
         </div>
     </header>
 
-    <!-- ГЛАВНЫЙ БАННЕР (черная полоса) -->
+    <!-- ГЛАВНЫЙ БАННЕР -->
     <section class="hero-section">
         <div class="container">
             <div class="hero">
@@ -87,7 +56,6 @@
                     <img src="images/my-photo.jpg" alt="Назиля Латыпова">
                 </div>
             
-                <!-- Текст справа -->
                 <div class="about-text">
                     <h2>Приветствую вас на своей digital-страничке!</h2>
                     <p>Меня зовут <strong>Назиля</strong>. Я SMM-специалист – так называемый архитектор онлайн-присутствия, который за 5 лет в интернет-маркетинге научился вести сайты, соцсети, а также <strong>строить мосты между брендами и их аудиторией</strong>.</p>
@@ -104,25 +72,21 @@
             <h2>Услуги</h2>
         
             <div class="services-list">
-                <!-- Услуга 1 -->
                 <div class="service-item">
                     <img src="images/service1.png" alt="PR и реклама">
                     <h3>PR и реклама</h3>
                 </div>
                 
-                <!-- Услуга 2 -->
                 <div class="service-item">
                     <img src="images/service2.png" alt="SMM – соцсети">
                     <h3>SMM – соцсети</h3>
                 </div>
                 
-                <!-- Услуга 3 -->
                 <div class="service-item">
                     <img src="images/service3.png" alt="SEO – сайт">
                     <h3>SEO – сайт</h3>
                 </div>
                 
-                <!-- Услуга 4 -->
                 <div class="service-item">
                     <img src="images/service4.png" alt="SERM – отзывы">
                     <h3>SERM – отзывы</h3>
@@ -131,122 +95,110 @@
         </div>
     </section>
 
-<!-- БЛОК "ПОРТФОЛИО" -->
-<section class="portfolio-section" id="portfolio">
-    <div class="container">
-        <h2>Проекты</h2>
-    
-        <div class="portfolio-slider-container">
-            <!-- Радиокнопки для управления слайдером -->
-            <input type="radio" name="portfolio-slider" id="project-1" checked>
-            <input type="radio" name="portfolio-slider" id="project-2">
-            <input type="radio" name="portfolio-slider" id="project-3">
-            <input type="radio" name="portfolio-slider" id="project-4">
-            
-            <!-- Слайд 1: Клиника стоматологии -->
-<div class="portfolio-slide">
-    <div class="portfolio-content">
-        <div class="portfolio-text">
-            <h3>Клиника стоматологии и эстетической медицины</h3>
-            <p>Комплексное продвижение премиальной клиники с полным циклом работ — от разработки сайта до аналитики. Создание единого digital-пространства, отражающего уровень услуг.</p>
-            <p>• <strong>Разработка сайта</strong>: сопровождение от макетов до тестирования верстки. Взаимодействие с подрядчиками и согласование этапов.</p>
-            <p>• <strong>Администрирование</strong>: SEO-оптимизация, работа с Яндекс.Вордстат, актуализация контента с учетом html-верстки.</p>
-            <p>• <strong>Реклама и аналитика</strong>: стратегии продвижения, ведение кампаний в Яндекс.Директ, анализ метрик и отчетность.</p>
-        </div>
-        <div class="portfolio-image">
-            <img src="images/portfolio1.png" alt="Клиника стоматологии">
-        </div>
-    </div>
-</div>
-
-<!-- Слайд 2: Патриотическое движение -->
-<div class="portfolio-slide">
-    <div class="portfolio-content">
-        <div class="portfolio-text">
-            <h3>Патриотическое движение</h3>
-            <p>Создание digital-присутствия для общественной организации с бережным подходом к контенту и позиционированию ценностей.</p>
-            <p>• <strong>Дизайн и контент</strong>: разработка креативов в Figma, обработка фотографий, создание визуальной концепции организации.</p>
-            <p>• <strong>Видеоконтент</strong>: полный цикл — от съемки до монтажа, создание эмоциональных роликов для вовлечения аудитории.</p>
-            <p>• <strong>Администрирование сайта</strong>: наполнение контентом, html-верстка, техническая поддержка ресурса.</p>
-            <p>• <strong>Координация</strong>: подготовка ТЗ, взаимодействие с контрагентами, контроль сроков и качества.</p>
-        </div>
-        <div class="portfolio-image">
-            <img src="images/portfolio2.png" alt="Патриотическое движение">
-        </div>
-    </div>
-</div>
-
-<!-- Слайд 3: Строительная компания -->
-<div class="portfolio-slide">
-    <div class="portfolio-content">
-        <div class="portfolio-text">
-            <h3>Строительная компания</h3>
-            <p>Продвижение застройщика жилых комплексов с акцентом на доверие и статусность через все digital-каналы.</p>
-            <p>• <strong>Соцсети</strong>: ведение аккаунтов, создание вовлекающего контента, дизайн креативов, работа с отзывами.</p>
-            <p>• <strong>Видеопродакшн</strong>: съемка и профессиональный монтаж в Adobe Premiere Pro для демонстрации объектов.</p>
-            <p>• <strong>Реклама и сайт</strong>: стратегии в VK Ads, ведение Яндекс.Бизнес, администрирование WordPress с SEO-оптимизацией.</p>
-        </div>
-        <div class="portfolio-image">
-            <img src="images/portfolio3.png" alt="Строительная компания">
-        </div>
-    </div>
-</div>
-
-<!-- Слайд 4: Музей истории -->
-<div class="portfolio-slide">
-    <div class="portfolio-content">
-        <div class="portfolio-text">
-            <h3>Музей истории</h3>
-            <p>Оцифровка культурного наследия и создание современного digital-образа музея с использованием технологий продвижения.</p>
-            <p>• <strong>Сайт музея</strong>: полное ведение ресурса — наполнение контентом, техническая поддержка, создание интуитивного интерфейса.</p>
-            <p>• <strong>Соцсети</strong>: развитие сообщества ВКонтакте, создание тематического контента, вовлечение аудитории.</p>
-            <p>• <strong>Мультимедиа и продвижение</strong>: обработка фотографий экспонатов, создание виртуальных туров, стратегии привлечения посетителей.</p>
-        </div>
-        <div class="portfolio-image">
-            <img src="images/portfolio4.png" alt="Музей истории">
-        </div>
-    </div>
-</div>
-
-<!-- ТОЧКИ - простые кружочки -->
-<div class="slider-dots">
-    <label for="project-1" class="slider-dot"></label>
-    <label for="project-2" class="slider-dot"></label>
-    <label for="project-3" class="slider-dot"></label>
-    <label for="project-4" class="slider-dot"></label>
-</div>
-        </div>
-    </div>
-</section>
-
-    <!-- ПОДВАЛ САЙТА -->
-    <footer class="footer-section">
+    <!-- БЛОК "ПРОЕКТЫ" -->
+    <section class="portfolio-section">
         <div class="container">
-            <div class="footer-content">
-                <!-- Левая колонка: Логотип -->
-                <div class="footer-projects">
-                    <!-- Логотип (в 2 раза больше) -->
-                    <div class="footer-logo">
-                        <img src="images/my_logo.png" alt="Логотип Назиля Латыпова" width="184" height="120">
+            <h2>Проекты</h2>
+    
+            <div class="portfolio-slider-container">
+                <input type="radio" name="portfolio-slider" id="project-1" checked>
+                <input type="radio" name="portfolio-slider" id="project-2">
+                <input type="radio" name="portfolio-slider" id="project-3">
+                <input type="radio" name="portfolio-slider" id="project-4">
+                
+                <div class="portfolio-slide">
+                    <div class="portfolio-content">
+                        <div class="portfolio-text">
+                            <h3>Клиника стоматологии и эстетической медицины</h3>
+                            <p>Комплексное продвижение премиальной клиники с полным циклом работ — от разработки сайта до аналитики.</p>
+                            <p>• <strong>Разработка сайта</strong>: сопровождение от макетов до тестирования верстки.</p>
+                            <p>• <strong>Администрирование</strong>: SEO-оптимизация, актуализация контента.</p>
+                            <p>• <strong>Реклама и аналитика</strong>: стратегии продвижения, ведение кампаний в Яндекс.Директ.</p>
+                        </div>
+                        <div class="portfolio-image">
+                            <img src="images/portfolio1.png" alt="Клиника стоматологии">
+                        </div>
                     </div>
                 </div>
 
-                <!-- Правая колонка: Контакты и соцсети -->
-                <div class="footer-right">
-
-                    <!-- Контакты с иконками -->
-                    <div class="footer-contacts">
-                        <div class="contact-item">
-                            <img src="images/icon-call.png" alt="Телефон" class="contact-icon">
-                            <span>+7 (999) 217-27-**</span>
+                <div class="portfolio-slide">
+                    <div class="portfolio-content">
+                        <div class="portfolio-text">
+                            <h3>Патриотическое движение</h3>
+                            <p>Создание digital-присутствия для общественной организации.</p>
+                            <p>• <strong>Дизайн и контент</strong>: разработка креативов, обработка фотографий.</p>
+                            <p>• <strong>Видеоконтент</strong>: полный цикл — от съемки до монтажа.</p>
+                            <p>• <strong>Администрирование сайта</strong>: наполнение контентом, техническая поддержка.</p>
                         </div>
-                        <div class="contact-item">
-                            <img src="images/icon-mail.png" alt="Email" class="contact-icon">
-                            <span>latypovanf@gmail.com</span>
+                        <div class="portfolio-image">
+                            <img src="images/portfolio2.png" alt="Патриотическое движение">
                         </div>
                     </div>
+                </div>
+
+                <div class="portfolio-slide">
+                    <div class="portfolio-content">
+                        <div class="portfolio-text">
+                            <h3>Строительная компания</h3>
+                            <p>Продвижение застройщика жилых комплексов с акцентом на доверие и статусность.</p>
+                            <p>• <strong>Соцсети</strong>: ведение аккаунтов, создание вовлекающего контента.</p>
+                            <p>• <strong>Видеопродакшн</strong>: съемка и профессиональный монтаж.</p>
+                            <p>• <strong>Реклама и сайт</strong>: стратегии в VK Ads, администрирование WordPress.</p>
+                        </div>
+                        <div class="portfolio-image">
+                            <img src="images/portfolio3.png" alt="Строительная компания">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-slide">
+                    <div class="portfolio-content">
+                        <div class="portfolio-text">
+                            <h3>Музей истории</h3>
+                            <p>Оцифровка культурного наследия и создание современного digital-образа музея.</p>
+                            <p>• <strong>Сайт музея</strong>: полное ведение ресурса — наполнение контентом.</p>
+                            <p>• <strong>Соцсети</strong>: развитие сообщества ВКонтакте.</p>
+                            <p>• <strong>Мультимедиа и продвижение</strong>: обработка фотографий, создание виртуальных туров.</p>
+                        </div>
+                        <div class="portfolio-image">
+                            <img src="images/portfolio4.png" alt="Музей истории">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slider-dots">
+                    <label for="project-1" class="slider-dot"></label>
+                    <label for="project-2" class="slider-dot"></label>
+                    <label for="project-3" class="slider-dot"></label>
+                    <label for="project-4" class="slider-dot"></label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПОДВАЛ -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/my_logo.png" alt="Логотип Назиля Латыпова">
+                </div>
+
+                <div class="footer-right">
+                    <div class="footer-contacts-wrapper">
+                        <div class="footer-contacts">
+                            <div class="contact-item">
+                                <img src="images/icon-mail.png" alt="Email" class="contact-icon">
+                                <span>latypovanf@gmail.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <img src="images/icon-call.png" alt="Телефон" class="contact-icon">
+                                <span>+7 (999) 217-27-**</span>
+                            </div>
+                        </div>
+                        <button class="cta-button">Позвонить</button>
+                    </div>
                     
-                    <!-- Социальные сети -->
                     <div class="footer-social">
                         <a href="https://vk.com/id821960600" target="_blank" class="social-link">
                             <img src="images/icon-vk.png" alt="ВКонтакте" class="social-icon">
@@ -258,7 +210,6 @@
                 </div>
             </div>
             
-            <!-- Копирайт -->
             <div class="copyright">
                 <p>© Санкт-Петербург, 2026 | Назиля Латыпова. Все права защищены.</p>
             </div>
