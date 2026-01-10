@@ -90,6 +90,84 @@ button:hover, .cta-button:hover {
     color: #FF2400;
 }
 
+/* ===== ВЫПАДАЮЩЕЕ МЕНЮ ===== */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+/* Стрелочка */
+.dropdown-toggle::after {
+    content: "▼";
+    font-size: 10px;
+    margin-left: 5px;
+    transition: transform 0.3s;
+}
+
+.dropdown:hover .dropdown-toggle::after {
+    transform: rotate(180deg);
+}
+
+/* Само выпадающее меню */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #191919;
+    min-width: 200px;
+    padding: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Пункты выпадающего меню */
+.dropdown-menu li {
+    margin: 0;
+}
+
+.task-link {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s;
+    border-left: 3px solid transparent;
+}
+
+.task-link:hover {
+    background-color: rgba(255, 36, 0, 0.1);
+    color: #FF2400;
+    border-left-color: #FF2400;
+}
+
+/* Подсветка текущей страницы */
+.task-link.current {
+    background-color: rgba(255, 36, 0, 0.2);
+    color: #FF2400;
+    border-left-color: #FF2400;
+    font-weight: 600;
+    pointer-events: none; /* Чтобы нельзя было кликнуть на текущую страницу */
+}
+
 /* Контакты в шапке */
 .header-contacts {
     display: flex;
@@ -274,80 +352,354 @@ button:hover, .cta-button:hover {
     background-color: white;
     width: 100%;
     padding: 80px 0;
+    position: relative;
 }
 
 .portfolio-section .container {
     position: relative;
+    max-width: 1400px;
 }
 
-.portfolio-slider {
-    display: flex;
+.portfolio-section h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #191919;
+    margin-bottom: 60px;
+}
+
+/* ===== ПРОСТОЙ СЛАЙДЕР ===== */
+.simple-portfolio-slider {
+    position: relative;
+    overflow: hidden;
+    padding: 40px 0;
+}
+
+/* Скрываем радиокнопки */
+.simple-portfolio-slider input[type="radio"] {
+    display: none;
+}
+
+/* Каждый слайд (контейнер из 3 карточек) */
+.simple-portfolio-slider .portfolio-slide {
+    display: none;
     justify-content: center;
     align-items: center;
     gap: 40px;
-    max-width: 1400px;
-    margin: 0 auto 60px;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.6s, transform 0.6s;
 }
 
+/* Показываем активный слайд */
+#simple-1:checked ~ .portfolio-slide:nth-of-type(1),
+#simple-2:checked ~ .portfolio-slide:nth-of-type(2) {
+    display: flex;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ===== КАРТОЧКИ ПРОЕКТОВ ===== */
 .portfolio-card {
-    width: 350px;
+    width: 300px; /* Обычная карточка */
     height: 400px;
-    overflow: hidden;
+    background: white;
     border-radius: 12px;
-    transition: all 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    position: relative;
 }
 
 .portfolio-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    transform: translateY(-15px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
+/* ЦЕНТРАЛЬНАЯ КАРТОЧКА (больше) */
 .portfolio-card.main-card {
     width: 400px;
     height: 450px;
-    margin-top: -25px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    z-index: 2;
 }
 
+/* Квадратное изображение - занимает 4/5 высоты */
 .portfolio-card img {
     width: 100%;
-    height: 300px;
+    height: 320px; /* 4/5 от 400px для обычной карточки */
     object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+}
+
+.portfolio-card:hover img {
+    transform: scale(1.05);
 }
 
 .portfolio-card.main-card img {
-    height: 350px;
+    height: 360px; /* 4/5 от 450px для большой карточки */
 }
 
+/* Заголовок карточки - занимает 1/5 высоты */
 .portfolio-card h3 {
-    padding: 20px;
-    text-align: center;
-    font-size: 20px;
-    color: #191919;
+    height: 80px; /* 1/5 от 400px для обычной карточки */
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border-top: 1px solid #eee;
 }
 
-/* Стрелки слайдера */
+.portfolio-card.main-card h3 {
+    height: 90px; /* 1/5 от 450px для большой карточки */
+}
+
+/* Ссылка на проект */
+.project-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: #191919;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 80px; /* Совпадает с высотой h3 */
+    transition: all 0.3s;
+    padding: 0 20px;
+}
+
+.portfolio-card.main-card .project-link {
+    line-height: 90px; /* Для большой карточки */
+    font-size: 20px;
+}
+
+.project-link:hover {
+    color: #FF2400;
+    background: rgba(255, 36, 0, 0.05);
+}
+
+.project-link.current {
+    color: #FF2400;
+    background: rgba(255, 36, 0, 0.1);
+    cursor: default;
+    pointer-events: none;
+}
+
+/* ===== СТРЕЛКИ УПРАВЛЕНИЯ ===== */
 .slider-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
     display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 40px;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 10;
+    pointer-events: none;
 }
 
 .slider-arrow {
-    background: #191919;
-    color: white;
     width: 60px;
     height: 60px;
+    background: #191919;
+    color: white;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 24px;
     cursor: pointer;
     transition: all 0.3s;
+    pointer-events: all;
+    opacity: 0.8;
+    border: none;
 }
 
 .slider-arrow:hover {
     background: #FF2400;
     transform: scale(1.1);
+    opacity: 1;
+}
+
+/* ===== ТОЧКИ-ИНДИКАТОРЫ ===== */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.slider-dot:hover {
+    background: #FF2400;
+}
+
+#simple-1:checked ~ .slider-dots .slider-dot:nth-child(1),
+#simple-2:checked ~ .slider-dots .slider-dot:nth-child(2) {
+    background: #FF2400;
+    transform: scale(1.3);
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 1200px) {
+    .portfolio-card {
+        width: 280px;
+        height: 380px;
+    }
+    
+    .portfolio-card.main-card {
+        width: 350px;
+        height: 420px;
+    }
+    
+    .portfolio-card img {
+        height: 304px; /* 4/5 от 380px */
+    }
+    
+    .portfolio-card.main-card img {
+        height: 336px; /* 4/5 от 420px */
+    }
+    
+    .portfolio-card h3 {
+        height: 76px; /* 1/5 от 380px */
+    }
+    
+    .portfolio-card.main-card h3 {
+        height: 84px; /* 1/5 от 420px */
+    }
+    
+    .project-link {
+        line-height: 76px;
+        font-size: 17px;
+    }
+    
+    .portfolio-card.main-card .project-link {
+        line-height: 84px;
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 992px) {
+    .simple-portfolio-slider .portfolio-slide {
+        gap: 20px;
+    }
+    
+    .portfolio-card {
+        width: 250px;
+        height: 350px;
+    }
+    
+    .portfolio-card.main-card {
+        width: 300px;
+        height: 400px;
+    }
+    
+    .portfolio-card img {
+        height: 280px; /* 4/5 от 350px */
+    }
+    
+    .portfolio-card.main-card img {
+        height: 320px; /* 4/5 от 400px */
+    }
+    
+    .portfolio-card h3 {
+        height: 70px; /* 1/5 от 350px */
+    }
+    
+    .portfolio-card.main-card h3 {
+        height: 80px; /* 1/5 от 400px */
+    }
+    
+    .project-link {
+        line-height: 70px;
+        font-size: 16px;
+    }
+    
+    .portfolio-card.main-card .project-link {
+        line-height: 80px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .simple-portfolio-slider .portfolio-slide {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .portfolio-card,
+    .portfolio-card.main-card {
+        width: 100%;
+        max-width: 400px;
+        height: 450px;
+        margin-top: 0;
+    }
+    
+    .portfolio-card img,
+    .portfolio-card.main-card img {
+        height: 360px; /* 4/5 от 450px */
+    }
+    
+    .portfolio-card h3,
+    .portfolio-card.main-card h3 {
+        height: 90px; /* 1/5 от 450px */
+    }
+    
+    .project-link,
+    .portfolio-card.main-card .project-link {
+        line-height: 90px;
+        font-size: 18px;
+    }
+    
+    .slider-controls {
+        padding: 0 10px;
+    }
+    
+    .slider-arrow {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+/* ===== АНИМАЦИЯ ПРИ ПЕРЕКЛЮЧЕНИИ СЛАЙДОВ ===== */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Анимация для переключения вправо */
+#simple-1:checked ~ .portfolio-slide:nth-of-type(2),
+#simple-2:checked ~ .portfolio-slide:nth-of-type(1) {
+    animation: slideInRight 0.6s ease forwards;
 }
 
 /* ===== ПОДВАЛ ===== */
