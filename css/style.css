@@ -22,19 +22,8 @@ html, body {
 h2 {
     text-align: center;
     font-size: 32px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     position: relative;
-}
-
-h2::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background-color: #FF2400;
 }
 
 img {
@@ -181,12 +170,9 @@ button:hover, .cta-button:hover {
 
 .about-text h2 {
     text-align: left;
-    margin-bottom: 75px;
-}
-
-.about-text h2::after {
-    left: 0;
-    transform: none;
+    margin-bottom: 35px;
+    border-bottom: 3px solid #FF2400;
+    padding-bottom: 12px;
 }
 
 .about-text p {
@@ -204,10 +190,6 @@ button:hover, .cta-button:hover {
 
 .services-section h2 {
     color: white;
-}
-
-.services-section h2::after {
-    background-color: white;
 }
 
 .services-list {
@@ -354,11 +336,12 @@ button:hover, .cta-button:hover {
 .footer-section {
     background: 
         linear-gradient(rgba(25, 25, 25, 0.5), rgba(25, 25, 25, 0.5)),
-        url('../images/footer.png') no-repeat center center;
-    background-size: cover;
+        url('../images/footer.png') no-repeat center top;
+    background-size: auto;
     width: 100%;
     padding: 80px 0 30px;
     color: white;
+    min-height: 400px;
 }
 
 .footer-content {
@@ -386,6 +369,8 @@ button:hover, .cta-button:hover {
     border-radius: 12px;
     padding: 30px;
     margin-bottom: 30px;
+    width: 400px;
+    margin-left: auto;
 }
 
 .footer-contacts {
@@ -410,16 +395,19 @@ button:hover, .cta-button:hover {
     display: flex;
     gap: 25px;
     justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .social-icon {
     width: 36px;
     height: 36px;
-    transition: filter 0.3s;
+    transition: all 0.3s ease;
+    opacity: 0.8;
 }
 
 .social-icon:hover {
-    filter: brightness(0) saturate(100%) invert(20%) sepia(100%) saturate(5000%) hue-rotate(360deg);
+    background: #FF2400;
 }
 
 .copyright {
@@ -442,11 +430,6 @@ button:hover, .cta-button:hover {
     .about-text h2 {
         text-align: center;
         margin-bottom: 60px;
-    }
-    
-    .about-text h2::after {
-        left: 50%;
-        transform: translateX(-50%);
     }
     
     .services-list {
