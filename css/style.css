@@ -12,7 +12,6 @@ html, body {
     background-color: white;
 }
 
-/* ===== ОБЩИЙ КОНТЕЙНЕР ===== */
 .container {
     max-width: 1920px;
     width: 100%;
@@ -20,11 +19,22 @@ html, body {
     padding: 0 40px;
 }
 
-/* ===== ОБЩИЕ СТИЛИ ===== */
 h2 {
     text-align: center;
     font-size: 32px;
     margin-bottom: 40px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: #FF2400;
 }
 
 img {
@@ -51,8 +61,6 @@ button:hover, .cta-button:hover {
 .header-fixed {
     background-color: #191919;
     width: 100%;
-    position: relative;
-    z-index: 100;
     padding: 20px 0;
 }
 
@@ -62,17 +70,15 @@ button:hover, .cta-button:hover {
     align-items: center;
 }
 
-/* Логотип */
-.header-fixed img {
+.header-logo {
     width: 92px;
     height: 60px;
 }
 
-/* Основное меню */
 .main-menu {
     display: flex;
     list-style: none;
-    gap: 70px;
+    gap: 40px;
     margin: 0;
     padding: 0;
 }
@@ -82,7 +88,6 @@ button:hover, .cta-button:hover {
     text-decoration: none;
     font-size: 18px;
     font-weight: 600;
-    padding: 8px 0;
     transition: color 0.3s;
 }
 
@@ -90,85 +95,6 @@ button:hover, .cta-button:hover {
     color: #FF2400;
 }
 
-/* ===== ВЫПАДАЮЩЕЕ МЕНЮ ===== */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-toggle {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    cursor: pointer;
-}
-
-/* Стрелочка */
-.dropdown-toggle::after {
-    content: "▼";
-    font-size: 10px;
-    margin-left: 5px;
-    transition: transform 0.3s;
-}
-
-.dropdown:hover .dropdown-toggle::after {
-    transform: rotate(180deg);
-}
-
-/* Само выпадающее меню */
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #191919;
-    min-width: 200px;
-    padding: 10px 0;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    list-style: none;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    z-index: 1000;
-}
-
-.dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-/* Пункты выпадающего меню */
-.dropdown-menu li {
-    margin: 0;
-}
-
-.task-link {
-    display: block;
-    padding: 10px 20px;
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    transition: all 0.3s;
-    border-left: 3px solid transparent;
-}
-
-.task-link:hover {
-    background-color: rgba(255, 36, 0, 0.1);
-    color: #FF2400;
-    border-left-color: #FF2400;
-}
-
-/* Подсветка текущей страницы */
-.task-link.current {
-    background-color: rgba(255, 36, 0, 0.2);
-    color: #FF2400;
-    border-left-color: #FF2400;
-    font-weight: 600;
-    pointer-events: none; /* Чтобы нельзя было кликнуть на текущую страницу */
-}
-
-/* Контакты в шапке */
 .header-contacts {
     display: flex;
     align-items: center;
@@ -181,31 +107,11 @@ button:hover, .cta-button:hover {
     font-weight: 600;
 }
 
-/* Бургер-меню */
-.burger-menu {
-    display: none;
-    flex-direction: column;
-    gap: 4px;
-    cursor: pointer;
-}
-
-.burger-menu div {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-}
-
 /* ===== ГЛАВНЫЙ БАННЕР ===== */
 .hero-section {
     background-color: #191919;
     width: 100%;
     height: 768px;
-    display: flex;
-    align-items: center;
-}
-
-.hero-section .container {
-    height: 100%;
 }
 
 .hero {
@@ -216,7 +122,6 @@ button:hover, .cta-button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 0;
 }
 
 .hero-content {
@@ -231,13 +136,11 @@ button:hover, .cta-button:hover {
 .hero h1 {
     font-size: 48px;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .hero p {
     font-size: 24px;
     margin-bottom: 30px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 /* ===== БЛОК "ОБО МНЕ" ===== */
@@ -275,7 +178,11 @@ button:hover, .cta-button:hover {
 
 .about-text h2 {
     text-align: left;
-    margin-bottom: 30px;
+}
+
+.about-text h2::after {
+    left: 0;
+    transform: none;
 }
 
 .about-text p {
@@ -293,30 +200,32 @@ button:hover, .cta-button:hover {
 
 .services-section h2 {
     color: white;
-    text-align: center;
     margin-bottom: 60px;
+}
+
+.services-section h2::after {
+    background-color: white;
 }
 
 .services-list {
     display: flex;
-    justify-content: center;
-    gap: 40px;
+    justify-content: space-between;
     flex-wrap: wrap;
     max-width: 1400px;
     margin: 0 auto;
+    gap: 20px;
 }
 
 .service-item {
-    position: relative;
-    width: 300px;
-    height: 350px;
+    width: 250px;
+    height: 250px;
     overflow: hidden;
     border-radius: 12px;
-    transition: transform 0.3s;
+    position: relative;
 }
 
-.service-item:hover {
-    transform: translateY(-10px);
+.service-item:first-child {
+    margin-left: 0;
 }
 
 .service-item img {
@@ -328,61 +237,37 @@ button:hover, .cta-button:hover {
 .service-item h3 {
     position: absolute;
     color: white;
-    font-size: 22px;
+    font-size: 18px;
     text-align: center;
     width: 100%;
-    padding: 20px;
+    padding: 15px;
     background: rgba(0,0,0,0.6);
     margin: 0;
-}
-
-/* Чередование положения текста */
-.service-item:nth-child(odd) h3 {
-    top: 0;
-    border-radius: 12px 12px 0 0;
-}
-
-.service-item:nth-child(even) h3 {
     bottom: 0;
     border-radius: 0 0 12px 12px;
 }
 
-/* ===== БЛОК "ПОРТФОЛИО" - СЛАЙДЕР ПРОЕКТОВ ===== */
+/* ===== БЛОК "ПОРТФОЛИО" ===== */
 .portfolio-section {
     background-color: white;
     width: 100%;
     padding: 80px 0;
-    position: relative;
 }
 
 .portfolio-section .container {
-    position: relative;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
-.portfolio-section h2 {
-    text-align: center;
-    font-size: 32px;
-    color: #191919;
-    margin-bottom: 60px;
-    font-weight: 700;
-}
-
-/* Контейнер слайдера */
 .portfolio-slider-container {
     position: relative;
-    overflow: hidden;
     width: 100%;
 }
 
-/* Скрываем радиокнопки */
 .portfolio-slider-container input[type="radio"] {
     display: none;
 }
 
-/* Каждый слайд (проект) */
 .portfolio-slide {
     display: none;
     background: white;
@@ -391,20 +276,8 @@ button:hover, .cta-button:hover {
     border: 1px solid #e0e0e0;
     min-height: 450px;
     width: 100%;
-    margin: 0 auto;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideAppear 0.8s ease forwards;
 }
 
-@keyframes slideAppear {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Показываем активный слайд */
 #project-1:checked ~ .portfolio-slide:nth-of-type(1),
 #project-2:checked ~ .portfolio-slide:nth-of-type(2),
 #project-3:checked ~ .portfolio-slide:nth-of-type(3),
@@ -412,18 +285,14 @@ button:hover, .cta-button:hover {
     display: block;
 }
 
-/* Контент слайда */
 .portfolio-content {
     display: flex;
     align-items: flex-start;
     gap: 60px;
-    height: 100%;
 }
 
-/* Текст слева */
 .portfolio-text {
     flex: 1;
-    min-height: 370px;
 }
 
 .portfolio-text h3 {
@@ -432,7 +301,6 @@ button:hover, .cta-button:hover {
     margin-bottom: 20px;
     border-bottom: 3px solid #FF2400;
     padding-bottom: 12px;
-    font-weight: 600;
 }
 
 .portfolio-text p {
@@ -447,7 +315,6 @@ button:hover, .cta-button:hover {
     font-weight: 600;
 }
 
-/* Картинка справа (квадратная) */
 .portfolio-image {
     flex-shrink: 0;
     width: 400px;
@@ -460,10 +327,8 @@ button:hover, .cta-button:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
 }
 
-/* ===== ТОЧКИ-ИНДИКАТОРЫ ===== */
 .slider-dots {
     display: flex;
     justify-content: center;
@@ -477,90 +342,26 @@ button:hover, .cta-button:hover {
     border-radius: 50%;
     background: #ddd;
     cursor: pointer;
-    transition: none;
     border: none;
+    transition: background-color 0.3s;
 }
 
 .slider-dot:hover {
     background: #FF2400;
 }
 
-/* Активная точка */
 #project-1:checked ~ .slider-dots .slider-dot:nth-child(1),
 #project-2:checked ~ .slider-dots .slider-dot:nth-child(2),
 #project-3:checked ~ .slider-dots .slider-dot:nth-child(3),
 #project-4:checked ~ .slider-dots .slider-dot:nth-child(4) {
     background: #FF2400;
-    transform: none;
-}
-
-/* ===== АДАПТИВНОСТЬ ===== */
-@media (max-width: 1100px) {
-    .portfolio-content {
-        gap: 40px;
-    }
-    
-    .portfolio-image {
-        width: 350px;
-        height: 350px;
-    }
-    
-    .portfolio-slide {
-        padding: 30px;
-    }
-}
-
-@media (max-width: 900px) {
-    .portfolio-content {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .portfolio-image {
-        width: 100%;
-        max-width: 400px;
-        height: 300px;
-        margin: 0 auto;
-        order: -1;
-    }
-    
-    .portfolio-text h3 {
-        text-align: center;
-    }
-    
-    .portfolio-text {
-        min-height: auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .portfolio-section {
-        padding: 60px 0;
-    }
-    
-    .portfolio-slide {
-        padding: 25px;
-        min-height: auto;
-    }
-    
-    .portfolio-text h3 {
-        font-size: 24px;
-    }
-    
-    .portfolio-text p {
-        font-size: 15px;
-        line-height: 1.5;
-    }
-    
-    .slider-dots {
-        gap: 12px;
-        margin-top: 30px;
-    }
 }
 
 /* ===== ПОДВАЛ ===== */
 .footer-section {
-    background: url('../images/footer.png') no-repeat center center;
+    background: 
+        linear-gradient(rgba(25, 25, 25, 0.5), rgba(25, 25, 25, 0.5)),
+        url('../images/footer.png') no-repeat center center;
     background-size: cover;
     width: 100%;
     padding: 80px 0 30px;
@@ -575,7 +376,6 @@ button:hover, .cta-button:hover {
     margin: 0 auto;
 }
 
-/* Левая колонка */
 .footer-logo {
     margin-bottom: 40px;
 }
@@ -585,13 +385,19 @@ button:hover, .cta-button:hover {
     height: 120px;
 }
 
-/* Правая колонка */
 .footer-right {
     text-align: right;
 }
 
+.footer-contacts-wrapper {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
 .footer-contacts {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .contact-item {
@@ -614,59 +420,49 @@ button:hover, .cta-button:hover {
     justify-content: flex-end;
 }
 
-.social-link {
-    display: inline-block;
-    transition: transform 0.3s;
-}
-
-.social-link:hover {
-    transform: scale(1.1);
-}
-
 .social-icon {
     width: 36px;
     height: 36px;
+    transition: filter 0.3s;
 }
 
 .social-icon:hover {
-    filter: brightness(0) invert(0.7);
+    filter: brightness(0) saturate(100%) invert(20%) sepia(100%) saturate(5000%) hue-rotate(360deg);
 }
 
-/* Копирайт */
 .copyright {
     text-align: center;
     margin-top: 60px;
     padding-top: 30px;
     border-top: 1px solid rgba(255,255,255,0.2);
     font-size: 16px;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.9);
+    font-weight: 600;
 }
 
 /* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 1400px) {
+    .about-content,
+    .services-list,
+    .portfolio-section .container {
+        max-width: 1200px;
+    }
+}
+
 @media (max-width: 1200px) {
     .about-content {
         max-width: 1000px;
         gap: 40px;
     }
     
-    .services-list,
-    .portfolio-slider {
+    .services-list {
         max-width: 1000px;
+        justify-content: center;
     }
     
     .service-item {
-        width: 250px;
-        height: 300px;
-    }
-    
-    .portfolio-card {
-        width: 300px;
-        height: 350px;
-    }
-    
-    .portfolio-card.main-card {
-        width: 350px;
-        height: 400px;
+        width: 220px;
+        height: 220px;
     }
 }
 
@@ -680,26 +476,26 @@ button:hover, .cta-button:hover {
         text-align: center;
     }
     
+    .about-text h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
     .services-list {
         gap: 30px;
     }
     
-    .service-item {
-        width: 220px;
-        height: 280px;
-    }
-    
-    .portfolio-slider {
+    .portfolio-content {
         flex-direction: column;
         gap: 30px;
     }
     
-    .portfolio-card,
-    .portfolio-card.main-card {
+    .portfolio-image {
         width: 100%;
-        max-width: 500px;
-        height: auto;
-        margin-top: 0;
+        max-width: 400px;
+        height: 300px;
+        margin: 0 auto;
+        order: -1;
     }
     
     .footer-content {
@@ -727,11 +523,11 @@ button:hover, .cta-button:hover {
     }
     
     .main-menu {
-        display: none;
+        gap: 20px;
     }
     
-    .burger-menu {
-        display: flex;
+    .main-menu a {
+        font-size: 16px;
     }
     
     .hero h1 {
@@ -749,6 +545,15 @@ button:hover, .cta-button:hover {
     
     .service-item {
         width: 100%;
-        max-width: 300px;
+        max-width: 250px;
+    }
+    
+    .portfolio-slide {
+        padding: 25px;
+        min-height: auto;
+    }
+    
+    .portfolio-text h3 {
+        font-size: 24px;
     }
 }
