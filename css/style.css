@@ -26,17 +26,6 @@ h2 {
     position: relative;
 }
 
-h2::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background-color: #FF2400;
-}
-
 img {
     border-radius: 12px;
 }
@@ -116,7 +105,7 @@ button:hover, .cta-button:hover {
 
 .hero {
     width: 100%;
-    height: 100%;
+    height: 768px;
     background: url('../images/banner.png') no-repeat center center;
     background-size: cover;
     display: flex;
@@ -136,6 +125,7 @@ button:hover, .cta-button:hover {
 .hero h1 {
     font-size: 48px;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .hero p {
@@ -178,11 +168,7 @@ button:hover, .cta-button:hover {
 
 .about-text h2 {
     text-align: left;
-}
-
-.about-text h2::after {
-    left: 0;
-    transform: none;
+    border-bottom: 3px solid #FF2400;
 }
 
 .about-text p {
@@ -201,10 +187,6 @@ button:hover, .cta-button:hover {
 .services-section h2 {
     color: white;
     margin-bottom: 60px;
-}
-
-.services-section h2::after {
-    background-color: white;
 }
 
 .services-list {
@@ -327,6 +309,7 @@ button:hover, .cta-button:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .slider-dots {
@@ -381,8 +364,8 @@ button:hover, .cta-button:hover {
 }
 
 .footer-logo img {
-    width: 184px;
-    height: 120px;
+    width: 368px;
+    height: 240px;
 }
 
 .footer-right {
@@ -427,7 +410,7 @@ button:hover, .cta-button:hover {
 }
 
 .social-icon:hover {
-    filter: brightness(0) saturate(100%) invert(20%) sepia(100%) saturate(5000%) hue-rotate(360deg);
+    color: #FF2400;
 }
 
 .copyright {
@@ -438,122 +421,4 @@ button:hover, .cta-button:hover {
     font-size: 16px;
     color: rgba(255,255,255,0.9);
     font-weight: 600;
-}
-
-/* ===== АДАПТИВНОСТЬ ===== */
-@media (max-width: 1400px) {
-    .about-content,
-    .services-list,
-    .portfolio-section .container {
-        max-width: 1200px;
-    }
-}
-
-@media (max-width: 1200px) {
-    .about-content {
-        max-width: 1000px;
-        gap: 40px;
-    }
-    
-    .services-list {
-        max-width: 1000px;
-        justify-content: center;
-    }
-    
-    .service-item {
-        width: 220px;
-        height: 220px;
-    }
-}
-
-@media (max-width: 992px) {
-    .about-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .about-text h2 {
-        text-align: center;
-    }
-    
-    .about-text h2::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .services-list {
-        gap: 30px;
-    }
-    
-    .portfolio-content {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .portfolio-image {
-        width: 100%;
-        max-width: 400px;
-        height: 300px;
-        margin: 0 auto;
-        order: -1;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 50px;
-        text-align: center;
-    }
-    
-    .footer-right {
-        text-align: center;
-    }
-    
-    .contact-item {
-        justify-content: center;
-    }
-    
-    .footer-social {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .container {
-        padding: 0 20px;
-    }
-    
-    .main-menu {
-        gap: 20px;
-    }
-    
-    .main-menu a {
-        font-size: 16px;
-    }
-    
-    .hero h1 {
-        font-size: 36px;
-    }
-    
-    .hero p {
-        font-size: 20px;
-    }
-    
-    .about-photo {
-        width: 300px;
-        height: 300px;
-    }
-    
-    .service-item {
-        width: 100%;
-        max-width: 250px;
-    }
-    
-    .portfolio-slide {
-        padding: 25px;
-        min-height: auto;
-    }
-    
-    .portfolio-text h3 {
-        font-size: 24px;
-    }
 }
