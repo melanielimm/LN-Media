@@ -9,14 +9,14 @@
     justify-content: center;
     align-items: center;
     background-color: #f8f8f8;
-    min-height: 400px; /* Увеличили высоту для стола */
+    min-height: 450px; /* Увеличили высоту для стула */
 }
 
 /* Сцена с чайником и столом */
 .teapot-scene {
     position: relative;
-    width: 250px;
-    height: 300px;
+    width: 400px;
+    height: 350px;
 }
 
 /* Основной контейнер чайника */
@@ -24,7 +24,7 @@
     position: absolute;
     width: 120px;
     height: 100px;
-    top: 50px; /* Подвинули чайник выше, чтобы был на столе */
+    top: 50px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
@@ -68,6 +68,95 @@
     
     /* Создаем треугольник с помощью clip-path */
     clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+}
+
+/* ===== ЛЕВЫЙ СТУЛ ===== */
+.left-chair {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    z-index: 3;
+}
+
+/* 1. Сиденье стула */
+.chair-seat {
+    position: absolute;
+    width: 54px;
+    height: 13px;
+    background: #D7702E;
+    top: 127px;
+    left: -144px;
+    border-radius: 2px;
+}
+
+/* 2. Ножка стула */
+.chair-leg {
+    position: absolute;
+    width: 13px;
+    height: 67px;
+    background: #D7702E;
+    top: 140px;
+    left: -107px;
+    border-radius: 2px;
+}
+
+/* 3. Спинка стула (внешний эллипс) */
+.chair-back-outer {
+    position: absolute;
+    width: 76px;
+    height: 164px;
+    background: #D7702E;
+    top: 42px;
+    left: -217px;
+    border-radius: 38px/82px; /* Эллипс */
+}
+
+/* 4. Внутренний эллипс (для вычитания) */
+.chair-back-inner {
+    position: absolute;
+    width: 76px;
+    height: 164px;
+    background: #f8f8f8; /* Цвет фона для эффекта вычитания */
+    top: 42px;
+    left: -227px;
+    border-radius: 38px/82px;
+}
+
+/* 5. Результирующая спинка (Subtract) */
+.chair-back {
+    position: absolute;
+    width: 43px;
+    height: 164px;
+    background: #D7702E;
+    top: 42px;
+    left: -184px;
+    border-top-left-radius: 38px 82px;
+    border-bottom-left-radius: 38px 82px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* 6. Декоративные кружки на стуле */
+.chair-decor {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background: #863903;
+    border-radius: 50%;
+    top: 129px;
+}
+
+/* Позиционирование каждой кружки */
+.decor-1 {
+    left: -145px;
+}
+
+.decor-2 {
+    left: -124px;
+}
+
+.decor-3 {
+    left: -103px;
 }
 
 /* ===== ЭЛЕМЕНТЫ ЧАЙНИКА ===== */
