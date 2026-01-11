@@ -39,7 +39,38 @@
 
 <main class="container">
     <h1 class="page-title">DOM. Вариант 1</h1>
+    
     <div class="frame">
+        <section class="task-section">
+            <h2>Часть 1: Вывод фраз</h2>
+            
+            <div class="task-buttons">
+                <button id="showPhraseBtn" class="task-button">Показать фразу</button>
+                <button id="recolorBtn" class="task-button secondary-button">Перекрасить четные строки</button>
+            </div>
+            
+            <div id="outputContainer" class="output-container">
+                <!-- Здесь будут появляться фразы -->
+            </div>
+        </section>
+        
+        <section class="task-section">
+            <h2>Часть 2: Таблица с фразами</h2>
+            
+            <button id="createRowBtn" class="task-button">Создать строку</button>
+            
+            <table class="phrases-table">
+                <thead>
+                    <tr>
+                        <th>Латинский язык</th>
+                        <th>Русский язык</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Строки таблицы будут добавляться сюда -->
+                </tbody>
+            </table>
+        </section>
     </div>
 </main>
 
@@ -81,5 +112,112 @@
             </div>
         </div>
     </footer>
+
+        <script>
+        // Массивы с фразами
+        const latinPhrases = [
+            "Consuetudo est altera natura",
+            "Nota bene", 
+            "Nulla calamitas sola",
+            "Per aspera ad astra"
+        ];
+        
+        const russianPhrases = [
+            "Привычка - вторая натура",
+            "Заметьте хорошо!",
+            "Беда не приходит одна", 
+            "Через тернии к звёздам"
+        ];
+        
+        // Переменные для отслеживания состояния
+        let clickCount = 0;
+        let usedIndices = [];
+        
+        // Элементы DOM
+        const showPhraseBtn = document.getElementById('showPhraseBtn');
+        const recolorBtn = document.getElementById('recolorBtn');
+        const createRowBtn = document.getElementById('createRowBtn');
+        const outputContainer = document.getElementById('outputContainer');
+        const tableBody = document.getElementById('tableBody');
+        
+        // 1. Функция для показа фразы
+        showPhraseBtn.addEventListener('click', function() {
+            // Проверяем, остались ли неиспользованные фразы
+            if (usedIndices.length >= latinPhrases.length) {
+                alert("Фразы закончились");
+                return;
+            }
+            
+            // Выбираем случайный индекс из неиспользованных
+            let availableIndices = [];
+            for (let i = 0; i < latinPhrases.length; i++) {
+                if (!usedIndices.includes(i)) {
+                    availableIndices.push(i);
+                }
+            }
+            
+            const randomIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+            usedIndices.push(randomIndex);
+            
+            // Увеличиваем счетчик кликов
+            clickCount++;
+            
+            // Определяем класс (четный клик - class1, нечетный - class2)
+            const phraseClass = clickCount % 2 === 0 ? 'class1' : 'class2';
+            
+            // Создаем элемент для фразы
+            const phraseElement = document.createElement('div');
+            phraseElement.className = `phrase-item ${phraseClass}`;
+            phraseElement.innerHTML = `
+                <strong>Латинский:</strong> ${latinPhrases[randomIndex]}<br>
+                <strong>Русский:</strong> ${russianPhrases[randomIndex]}
+            `;
+            
+            // Добавляем в контейнер
+            outputContainer.appendChild(phraseElement);
+        });
+        
+        // 2. Функция для перекрашивания четных строк
+        recolorBtn.addEventListener('click', function() {
+            const phraseItems = outputContainer.querySelectorAll('.phrase-item');
+            
+            phraseItems.forEach((item, index) => {
+                // Индексы начинаются с 0, поэтому четные по порядку = нечетные индексы
+                if (index % 2 === 0) { // Это вторая, четвертая и т.д. строки (индексы 1, 3, 5...)
+                    item.classList.add('bold-text');
+                }
+            });
+        });
+        
+        // 3. Функция для создания строк в таблице
+        let rowCount = 0;
+        
+        createRowBtn.addEventListener('click', function() {
+            // Проверяем, не превысили ли количество доступных фраз
+            if (rowCount >= latinPhrases.length) {
+                alert("Все фразы уже добавлены в таблицу");
+                return;
+            }
+            
+            // Создаем новую строку
+            const newRow = document.createElement('tr');
+            
+            // Чередуем цвета строк
+            const rowClass = rowCount % 2 === 0 ? 'row-color1' : 'row-color2';
+            newRow.className = rowClass;
+            
+            // Заполняем ячейки
+            newRow.innerHTML = `
+                <td>${latinPhrases[rowCount]}</td>
+                <td>${russianPhrases[rowCount]}</td>
+            `;
+            
+            // Добавляем строку в таблицу
+            tableBody.appendChild(newRow);
+            
+            // Увеличиваем счетчик
+            rowCount++;
+        });
+    </script>
 </body>
 </html>
