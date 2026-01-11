@@ -1,0 +1,75 @@
+/* Холст для рисунка */
+.teapot-scene {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 50px auto;
+  border: 1px dashed #ccc; /* рамка для наглядности */
+}
+
+/* Стол */
+.table {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  width: 160px;
+  height: 15px;
+  background: #8B4513; /* коричневый */
+  border-radius: 5px 5px 0 0;
+}
+
+/* Основание чайника */
+.teapot-body {
+  position: absolute;
+  bottom: 15px; /* стоит на столе */
+  left: 70px;
+  width: 60px;
+  height: 40px;
+  background: #2E8B57; /* зеленый */
+  border-radius: 10px 10px 20px 20px;
+}
+
+/* Крышка чайника */
+.teapot-lid {
+  position: absolute;
+  bottom: 55px;
+  left: 75px;
+  width: 50px;
+  height: 10px;
+  background: #228B22; /* темно-зеленый */
+  border-radius: 5px;
+}
+
+/* Носик чайника (треугольник) */
+.teapot-spout {
+  position: absolute;
+  bottom: 35px;
+  left: 130px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 20px solid #228B22;
+}
+
+/* Стул 1 */
+.chair-1 {
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  background: #A0522D; /* светло-коричневый */
+  border-radius: 5px;
+}
+
+/* Стул 2 */
+.chair-2 {
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background: #DEB887; /* бежевый */
+  border-radius: 5px;
+}
