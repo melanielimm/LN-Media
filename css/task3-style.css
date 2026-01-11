@@ -24,6 +24,11 @@
 
 /* ===== СТИЛИ ДЛЯ ЗАДАНИЯ 3 ===== */
 
+/* Скрытый чекбокс для переключения состояний */
+#flex-toggle {
+    display: none;
+}
+
 /* Основной контейнер */
 .flex-ad-container {
     position: relative;
@@ -33,9 +38,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    outline: none;
-    border: none;
-    background: none;
 }
 
 /* Базовое изображение рекламы */
@@ -58,7 +60,6 @@
     z-index: 2;
     pointer-events: none;
     transform-origin: center;
-    transition: opacity 0.3s;
 }
 
 /* Крышка */
@@ -88,7 +89,6 @@
     opacity: 0;
     z-index: 4;
     pointer-events: none;
-    transition: opacity 0.3s;
 }
 
 /* ===== СОСТОЯНИЯ ===== */
@@ -123,7 +123,7 @@
     }
 }
 
-/* 2. При удерживании ЛКМ (:active) - крышка хлопает */
+/* 2. При нажатии и удерживании ЛКМ на контейнере */
 .flex-ad-container:active .flex-pot {
     animation: none;
     opacity: 1;
@@ -151,8 +151,12 @@
     }
 }
 
-/* 3. Конечное состояние при фокусе (после клика) */
-.flex-ad-container:focus .flex-pot {
+/* 3. Конечное состояние после клика (чекбокс отмечен) */
+#flex-toggle:checked + .flex-ad-container {
+    animation: horizontal-shake 0.5s infinite;
+}
+
+#flex-toggle:checked + .flex-ad-container .flex-pot {
     animation: none;
     opacity: 1;
     width: 207px;
@@ -161,24 +165,19 @@
     left: 66px;
 }
 
-.flex-ad-container:focus .flex-lid {
-    opacity: 1;
+#flex-toggle:checked + .flex-ad-container .flex-lid {
     animation: none;
+    opacity: 1;
     transform: rotate(-33deg);
     top: 157px;
     left: 66px;
 }
 
-.flex-ad-container:focus .flex-text {
+#flex-toggle:checked + .flex-ad-container .flex-text {
     opacity: 1;
 }
 
-.flex-ad-container:focus {
-    animation: horizontal-shake 0.5s infinite;
-}
-
-/* 4. При наведении на сфокусированный элемент - убираем пульсацию кастрюли */
-.flex-ad-container:focus:hover .flex-pot {
+#flex-toggle:checked + .flex-ad-container:hover .flex-pot {
     animation: none;
 }
 
