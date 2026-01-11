@@ -1,1 +1,23 @@
+/* ===== ЗАГОЛОВОК СТРАНИЦЫ ===== */
+.page-title {
+    font-size: 36px;
+    color: #191919;
+    text-align: center;
+    margin: 40px 0;
+    padding-bottom: 15px;
+    position: relative;
+}
 
+/* ===== РАМКА ДЛЯ РЕКЛАМЫ ===== */
+.flex-frame {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #808080;
+    min-height: 400px;
+    width: 100%;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
