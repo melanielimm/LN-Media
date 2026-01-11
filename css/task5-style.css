@@ -3,21 +3,395 @@
     font-size: 36px;
     color: #191919;
     text-align: center;
-    margin: 40px 0;
+    margin: 40px 0 20px;
     padding-bottom: 15px;
     position: relative;
 }
 
-/* ===== РАМКА ДЛЯ РЕКЛАМЫ ===== */
-.flex-frame {
+.page-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: #FF2400;
+}
+
+.page-description {
+    text-align: center;
+    color: #191919;
+    margin-bottom: 40px;
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===== ИГРОВОЕ ПОЛЕ ===== */
+.game-container {
+    margin-bottom: 60px;
+}
+
+.frame {
     background: white;
     border-radius: 12px;
     padding: 20px;
-    border: 1px solid #808080;
-    min-height: 400px;
+    border: 2px solid #808080;
+    min-height: 700px;
     width: 100%;
     margin: 0 auto 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Инструкция */
+.instructions {
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 30px;
+    border-left: 4px solid #FF2400;
+}
+
+.instructions h3 {
+    color: #191919;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.instructions ol {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.instructions li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+/* Целевые области */
+.target-area {
+    position: absolute;
+    width: 220px;
+    height: 250px;
+    border: 2px dashed #808080;
+    border-radius: 12px;
+    padding: 15px;
+    z-index: 1;
+}
+
+.target-area h3 {
+    margin: 0 0 10px 0;
+    color: #191919;
+    font-size: 18px;
+    text-align: center;
+}
+
+.area-outline {
+    width: 100%;
+    height: calc(100% - 30px);
+    border-radius: 8px;
+}
+
+.tree-area {
+    top: 100px;
+    left: 50px;
+    border-color: #149E4B;
+}
+
+.tree-area .area-outline {
+    background: rgba(20, 158, 75, 0.05);
+}
+
+.house-area {
+    top: 100px;
+    right: 50px;
+    border-color: #D13D01;
+}
+
+.house-area .area-outline {
+    background: rgba(209, 61, 1, 0.05);
+}
+
+/* Фигуры */
+.shape {
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.shape:hover {
+    opacity: 0.8;
+}
+
+/* Общие стили для всех фигур */
+.tree-shape {
+    top: 400px;
+}
+
+.house-shape {
+    top: 400px;
+}
+
+/* Ствол елки (Rectangle 651) */
+.trunk {
+    width: 50px;
+    height: 18px;
+    background: #880015;
+    left: 100px;
+    transform: rotate(0deg);
+}
+
+/* Большой ярус елки (Polygon 3) */
+.tree-tier1 {
+    width: 150px;
+    height: 90px;
+    background: #149E4B;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    left: 200px;
+    transform: rotate(45deg);
+}
+
+/* Средний ярус елки (Polygon 4) */
+.tree-tier2 {
+    width: 92px;
+    height: 55px;
+    background: #4DE61D;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    left: 300px;
+    transform: rotate(90deg);
+}
+
+/* Маленький ярус елки (Polygon 5) */
+.tree-tier3 {
+    width: 68.1px;
+    height: 53.41px;
+    background: #B5E61D;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    left: 400px;
+    transform: rotate(135deg);
+}
+
+/* Основание домика (Rectangle 650) */
+.house-base {
+    width: 65px;
+    height: 65px;
+    background: #D13D01;
+    right: 100px;
+    transform: rotate(180deg);
+}
+
+/* Крыша домика (Polygon 2) */
+.house-roof {
+    width: 110px;
+    height: 60px;
+    background: #B97A57;
+    border: 2px solid #73000A;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    right: 200px;
+    transform: rotate(225deg);
+}
+
+/* Окно домика */
+.house-window {
+    width: 24px;
+    height: 24px;
+    right: 300px;
+    transform: rotate(270deg);
+}
+
+.window-container {
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+}
+
+.window-top, .window-left, .window-right {
+    box-sizing: border-box;
+    background: #CDF0F1;
+    border: 1px solid #119EDB;
+}
+
+.window-top {
+    width: 100%;
+    height: 9px;
+}
+
+.window-left {
+    width: 50%;
+    height: 15px;
+}
+
+.window-right {
+    width: 50%;
+    height: 15px;
+}
+
+/* Выделение выбранной фигуры */
+.shape-selector:checked + .shape {
+    outline: 3px solid #FF2400;
+    outline-offset: 3px;
+    z-index: 20;
+}
+
+/* Область для размещения фигур */
+.placement-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+    z-index: 5;
+}
+
+/* Логика размещения фигур */
+#select-trunk:checked ~ .placement-area:active ~ .trunk {
+    /* Перемещение ствола в область елки при правильном размещении */
+    top: 250px;
+    left: 110px;
+    transform: rotate(0deg);
+}
+
+#select-tier1:checked ~ .placement-area:active ~ .tree-tier1 {
+    top: 120px;
+    left: 85px;
+    transform: rotate(0deg);
+}
+
+#select-tier2:checked ~ .placement-area:active ~ .tree-tier2 {
+    top: 160px;
+    left: 115px;
+    transform: rotate(0deg);
+}
+
+#select-tier3:checked ~ .placement-area:active ~ .tree-tier3 {
+    top: 195px;
+    left: 126px;
+    transform: rotate(0deg);
+}
+
+#select-house-base:checked ~ .placement-area:active ~ .house-base {
+    top: 250px;
+    right: 135px;
+    transform: rotate(0deg);
+}
+
+#select-house-roof:checked ~ .placement-area:active ~ .house-roof {
+    top: 120px;
+    right: 85px;
+    transform: rotate(0deg);
+}
+
+#select-window:checked ~ .placement-area:active ~ .house-window {
+    top: 170px;
+    right: 140px;
+    transform: rotate(0deg);
+}
+
+/* Проверка завершенности */
+.completion-check {
+    display: none;
+}
+
+/* Когда все фигуры елки на месте */
+.trunk:active ~ .tree-tier1:active ~ .tree-tier2:active ~ .tree-tier3:active {
+    /* Фигуры остаются на своих местах */
+}
+
+/* Собранная елка */
+#tree-complete:checked ~ .tree-area {
+    border: 3px solid #149E4B;
+    background: rgba(20, 158, 75, 0.1);
+}
+
+/* Собранный домик */
+#house-complete:checked ~ .house-area {
+    border: 3px solid #D13D01;
+    background: rgba(209, 61, 1, 0.1);
+}
+
+/* Анимация победы */
+#tree-complete:checked ~ #house-complete:checked ~ .frame {
+    background: linear-gradient(135deg, #f0fff0 0%, #e0ffe0 100%);
+    border-color: #149E4B;
+    animation: pulse-bg 2s infinite;
+}
+
+@keyframes pulse-bg {
+    0%, 100% { background: linear-gradient(135deg, #f0fff0 0%, #e0ffe0 100%); }
+    50% { background: linear-gradient(135deg, #d0ffd0 0%, #c0ffc0 100%); }
+}
+
+#tree-complete:checked ~ #house-complete:checked ~ .win-message {
+    display: block;
+    animation: fadeIn 1s ease-out;
+}
+
+.win-message {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    z-index: 100;
+    border: 3px solid #149E4B;
+    width: 80%;
+    max-width: 500px;
+}
+
+.win-message h2 {
+    color: #149E4B;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.win-message p {
+    color: #191919;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.win-message .cta-button {
+    background: #FF2400;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.win-message .cta-button:hover {
+    background: #149E4B;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Скрытые элементы управления */
+.shape-selector,
+.completion-check {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
 }
