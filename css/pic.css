@@ -1,22 +1,43 @@
-/* ===== ЧАЙНИК CSS ===== */
-
-/* Контейнер для центрирования чайника в рамке */
-.teapot-container {
+/* ===== ЗАГОЛОВОК СТРАНИЦЫ ===== */
+.page-title {
+    font-size: 36px;
+    color: #191919;
+    text-align: center;
+    margin: 40px 0;
+    padding-bottom: 15px;
     position: relative;
+}
+
+.page-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: #FF2400;
+}
+
+/* ===== РАМКА ДЛЯ РИСУНКА ===== */
+.teapot-frame {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    border: 1px solid #808080;
+    min-height: 500px;
     width: 100%;
-    height: 100%;
+    margin: 0 auto 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f8f8f8;
-    min-height: 450px; /* Увеличили высоту для стула */
 }
 
-/* Сцена с чайником и столом */
+/* ===== СЦЕНА С ЧАЙНИКОМ И СТОЛОМ ===== */
 .teapot-scene {
     position: relative;
-    width: 400px;
-    height: 350px;
+    width: 500px;
+    height: 300px;
 }
 
 /* Основной контейнер чайника */
@@ -24,9 +45,8 @@
     position: absolute;
     width: 120px;
     height: 100px;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 100px;
+    left: 250px;
     z-index: 10;
 }
 
@@ -38,9 +58,9 @@
     width: 189px;
     height: 15px;
     background: #D7702E;
-    top: 74px;
-    left: -90px;
-    z-index: 5; /* Впереди тела чайника */
+    top: 124px;
+    left: 160px;
+    z-index: 5;
     border-radius: 3px;
 }
 
@@ -50,8 +70,8 @@
     width: 32px;
     height: 89px;
     background: #D7702E;
-    top: 82px;
-    left: -11px;
+    top: 132px;
+    left: 239px;
     z-index: 4;
     border-radius: 8px;
 }
@@ -62,19 +82,15 @@
     width: 70px;
     height: 74px;
     background: #D7702E;
-    top: 152px;
-    left: -30px;
+    top: 202px;
+    left: 220px;
     z-index: 4;
-    
-    /* Создаем треугольник с помощью clip-path */
     clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
 }
 
 /* ===== ЛЕВЫЙ СТУЛ ===== */
 .left-chair {
     position: absolute;
-    width: 200px;
-    height: 200px;
     z-index: 3;
 }
 
@@ -84,8 +100,8 @@
     width: 54px;
     height: 13px;
     background: #D7702E;
-    top: 127px;
-    left: -144px;
+    top: 177px;
+    left: 106px;
     border-radius: 2px;
 }
 
@@ -95,8 +111,8 @@
     width: 13px;
     height: 67px;
     background: #D7702E;
-    top: 140px;
-    left: -107px;
+    top: 190px;
+    left: 143px;
     border-radius: 2px;
 }
 
@@ -106,9 +122,9 @@
     width: 76px;
     height: 164px;
     background: #D7702E;
-    top: 42px;
-    left: -217px;
-    border-radius: 38px/82px; /* Эллипс */
+    top: 92px;
+    left: 33px;
+    border-radius: 38px/82px;
 }
 
 /* 4. Внутренний эллипс (для вычитания) */
@@ -116,9 +132,9 @@
     position: absolute;
     width: 76px;
     height: 164px;
-    background: #f8f8f8; /* Цвет фона для эффекта вычитания */
-    top: 42px;
-    left: -227px;
+    background: white;
+    top: 92px;
+    left: 23px;
     border-radius: 38px/82px;
 }
 
@@ -128,8 +144,8 @@
     width: 43px;
     height: 164px;
     background: #D7702E;
-    top: 42px;
-    left: -184px;
+    top: 92px;
+    left: 66px;
     border-top-left-radius: 38px 82px;
     border-bottom-left-radius: 38px 82px;
     border-top-right-radius: 0;
@@ -143,20 +159,20 @@
     height: 9px;
     background: #863903;
     border-radius: 50%;
-    top: 129px;
+    top: 179px;
 }
 
 /* Позиционирование каждой кружки */
 .decor-1 {
-    left: -145px;
+    left: 105px;
 }
 
 .decor-2 {
-    left: -124px;
+    left: 126px;
 }
 
 .decor-3 {
-    left: -103px;
+    left: 147px;
 }
 
 /* ===== ЭЛЕМЕНТЫ ЧАЙНИКА ===== */
@@ -170,7 +186,7 @@
     border-radius: 50%;
     top: 17px;
     left: -39px;
-    z-index: 3; /* Самый верхний слой из основных */
+    z-index: 3;
 }
 
 /* 2. Крышка чайника */
@@ -182,9 +198,7 @@
     border-radius: 50%;
     top: 4px;
     left: -21px;
-    z-index: 2; /* Под телом */
-    
-    /* Обрезаем нижнюю половину */
+    z-index: 2;
     overflow: hidden;
 }
 
@@ -207,7 +221,7 @@
     border-radius: 50%;
     top: 0;
     left: 0;
-    z-index: 1; /* Самый нижний */
+    z-index: 1;
 }
 
 /* 4. Ручка чайника (кольцо) */
@@ -219,7 +233,7 @@
     border-radius: 50%;
     top: 37px;
     left: 35px;
-    z-index: 2; /* Под телом чайника */
+    z-index: 2;
 }
 
 /* 5. Носик чайника */
@@ -231,6 +245,6 @@
     transform: rotate(26.12deg);
     top: 40px;
     left: -50px;
-    z-index: 1; /* Самый нижний слой */
+    z-index: 1;
     border-radius: 3px;
 }
