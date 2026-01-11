@@ -85,6 +85,13 @@ button:hover, .cta-button:hover {
     transition: color 0.3s;
 }
 
+.main-menu li {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+}
+
 .main-menu a:hover {
     color: #FF2400;
 }
