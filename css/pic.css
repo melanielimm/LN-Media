@@ -118,7 +118,7 @@
     position: absolute;
     width: 76px;
     height: 164px;
-    background: white; /* Цвет фона для "вычитания" */
+    background: #D7702E;
     border-radius: 38px/82px;
     left: 10px; /* Сдвигаем на 10px вправо для вычитания */
     top: 0;
@@ -129,7 +129,7 @@
     position: absolute;
     width: 76px;
     height: 164px;
-    background: #D7702E;
+    background: white;
     border-radius: 38px/82px; /* Эллипс 76x164 */
     left: 0;
     top: 0;
@@ -200,7 +200,7 @@
     height: 164px;
     background: white;
     border-radius: 38px/82px;
-    left: -10px; /* Для правого стула сдвигаем влево */
+    left: 0px; /* Для правого стула сдвигаем влево */
     top: 0;
 }
 
@@ -210,7 +210,7 @@
     height: 164px;
     background: #D7702E;
     border-radius: 38px/82px;
-    left: 0;
+    left: -10px;
     top: 0;
 }
 
