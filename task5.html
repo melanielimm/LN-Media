@@ -39,7 +39,74 @@
 
 <main class="container">
     <h1 class="page-title">Перетаскивание объектов. Вариант 1</h1>
-    <div class="frame">
+    <p class="page-description">Расставьте элементы в нужные места. Для "перетаскивания" кликните на фигуру, затем кликните в место, куда хотите ее поместить.</p>
+    
+    <div class="game-container">
+        <div class="frame">
+            <!-- Инструкция -->
+            <div class="instructions">
+                <h3>Как играть:</h3>
+                <ol>
+                    <li>Нажмите на фигуру, чтобы выбрать ее (она подсветится)</li>
+                    <li>Нажмите в любом месте поля, чтобы поместить туда выбранную фигуру</li>
+                    <li>Для поворота нажмите на фигуру правой кнопкой мыши</li>
+                    <li>Соберите елочку слева и домик справа</li>
+                </ol>
+            </div>
+            
+            <!-- Область для елочки -->
+            <div class="target-area tree-area">
+                <h3>Зона для елочки</h3>
+                <div class="area-outline"></div>
+            </div>
+            
+            <!-- Область для домика -->
+            <div class="target-area house-area">
+                <h3>Зона для домика</h3>
+                <div class="area-outline"></div>
+            </div>
+            
+            <!-- Фигуры для елочки -->
+            <div class="shape tree-shape trunk" data-shape="trunk" data-rotation="0"></div>
+            <div class="shape tree-shape tree-tier1" data-shape="tier1" data-rotation="45"></div>
+            <div class="shape tree-shape tree-tier2" data-shape="tier2" data-rotation="90"></div>
+            <div class="shape tree-shape tree-tier3" data-shape="tier3" data-rotation="135"></div>
+            
+            <!-- Фигуры для домика -->
+            <div class="shape house-shape house-base" data-shape="house-base" data-rotation="180"></div>
+            <div class="shape house-shape house-roof" data-shape="house-roof" data-rotation="225"></div>
+            <div class="shape house-shape house-window" data-shape="window" data-rotation="270">
+                <div class="window-container">
+                    <div class="window-top"></div>
+                    <div class="window-left"></div>
+                    <div class="window-right"></div>
+                </div>
+            </div>
+            
+            <!-- Скрытые чекбоксы для управления -->
+            <input type="radio" name="selected-shape" id="select-none" class="shape-selector" checked>
+            <input type="radio" name="selected-shape" id="select-trunk" class="shape-selector">
+            <input type="radio" name="selected-shape" id="select-tier1" class="shape-selector">
+            <input type="radio" name="selected-shape" id="select-tier2" class="shape-selector">
+            <input type="radio" name="selected-shape" id="select-tier3" class="shape-selector">
+            <input type="radio" name="selected-shape" id="select-house-base" class="shape-selector">
+            <input type="radio" name="selected-shape" id="select-house-roof" class="shape-selector">
+            <input type="radio" name="selected-shape" id="select-window" class="shape-selector">
+            
+            <!-- Область для размещения фигур -->
+            <label for="select-none" class="placement-area"></label>
+            
+            <!-- Чекбоксы для проверки завершения -->
+            <input type="checkbox" id="tree-complete" class="completion-check">
+            <input type="checkbox" id="house-complete" class="completion-check">
+            
+            <!-- Сообщение о победе -->
+            <div class="win-message">
+                <h2>🎉 Поздравляем! 🎉</h2>
+                <p>Вы успешно собрали обе фигуры!</p>
+                <button onclick="location.reload()" class="cta-button">Начать заново</button>
+            </div>
+        </div>
     </div>
 </main>
 
