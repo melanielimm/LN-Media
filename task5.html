@@ -39,73 +39,117 @@
 
 <main class="container">
     <h1 class="page-title">Перетаскивание объектов. Вариант 1</h1>
-    <p class="page-description">Расставьте элементы в нужные места. Для "перетаскивания" кликните на фигуру, затем кликните в место, куда хотите ее поместить.</p>
+    
+    <!-- Инструкция ВНЕ рамки -->
+    <div class="instructions-container">
+        <h3>Инструкция:</h3>
+        <ol>
+            <li><strong>Выбор фигуры:</strong> Нажмите на фигуру внизу поля (она подсветится)</li>
+            <li><strong>Размещение:</strong> Нажмите в левую или правую зону, чтобы поместить туда выбранную фигуру</li>
+            <li><strong>Поворот:</strong> Нажмите на фигуру правой кнопкой мыши для поворота на 45°</li>
+            <li><strong>Цель:</strong> Соберите елочку в левой зоне и домик в правой зоне</li>
+        </ol>
+        <p><em>Статус: Собрано <span class="counter">0</span>/2 фигур</em></p>
+    </div>
     
     <div class="game-container">
         <div class="frame">
-            <!-- Инструкция -->
-            <div class="instructions">
-                <h3>Как играть:</h3>
-                <ol>
-                    <li>Нажмите на фигуру, чтобы выбрать ее (она подсветится)</li>
-                    <li>Нажмите в любом месте поля, чтобы поместить туда выбранную фигуру</li>
-                    <li>Для поворота нажмите на фигуру правой кнопкой мыши</li>
-                    <li>Соберите елочку слева и домик справа</li>
-                </ol>
-            </div>
-            
-            <!-- Область для елочки -->
-            <div class="target-area tree-area">
+            <!-- ЛЕВАЯ ЗОНА - для елочки -->
+            <div class="zone left-zone">
                 <h3>Зона для елочки</h3>
-                <div class="area-outline"></div>
-            </div>
-            
-            <!-- Область для домика -->
-            <div class="target-area house-area">
-                <h3>Зона для домика</h3>
-                <div class="area-outline"></div>
-            </div>
-            
-            <!-- Фигуры для елочки -->
-            <div class="shape tree-shape trunk" data-shape="trunk" data-rotation="0"></div>
-            <div class="shape tree-shape tree-tier1" data-shape="tier1" data-rotation="45"></div>
-            <div class="shape tree-shape tree-tier2" data-shape="tier2" data-rotation="90"></div>
-            <div class="shape tree-shape tree-tier3" data-shape="tier3" data-rotation="135"></div>
-            
-            <!-- Фигуры для домика -->
-            <div class="shape house-shape house-base" data-shape="house-base" data-rotation="180"></div>
-            <div class="shape house-shape house-roof" data-shape="house-roof" data-rotation="225"></div>
-            <div class="shape house-shape house-window" data-shape="window" data-rotation="270">
-                <div class="window-container">
-                    <div class="window-top"></div>
-                    <div class="window-left"></div>
-                    <div class="window-right"></div>
+                <div class="zone-content">
+                    <!-- Сюда будут помещаться фигуры для елки -->
+                    <label for="place-trunk" class="placement-spot trunk-spot"></label>
+                    <label for="place-tier1" class="placement-spot tier1-spot"></label>
+                    <label for="place-tier2" class="placement-spot tier2-spot"></label>
+                    <label for="place-tier3" class="placement-spot tier3-spot"></label>
                 </div>
             </div>
             
-            <!-- Скрытые чекбоксы для управления -->
-            <input type="radio" name="selected-shape" id="select-none" class="shape-selector" checked>
-            <input type="radio" name="selected-shape" id="select-trunk" class="shape-selector">
-            <input type="radio" name="selected-shape" id="select-tier1" class="shape-selector">
-            <input type="radio" name="selected-shape" id="select-tier2" class="shape-selector">
-            <input type="radio" name="selected-shape" id="select-tier3" class="shape-selector">
-            <input type="radio" name="selected-shape" id="select-house-base" class="shape-selector">
-            <input type="radio" name="selected-shape" id="select-house-roof" class="shape-selector">
-            <input type="radio" name="selected-shape" id="select-window" class="shape-selector">
+            <!-- ПРАВАЯ ЗОНА - для домика -->
+            <div class="zone right-zone">
+                <h3>Зона для домика</h3>
+                <div class="zone-content">
+                    <!-- Сюда будут помещаться фигуры для домика -->
+                    <label for="place-base" class="placement-spot base-spot"></label>
+                    <label for="place-roof" class="placement-spot roof-spot"></label>
+                    <label for="place-window" class="placement-spot window-spot"></label>
+                </div>
+            </div>
             
-            <!-- Область для размещения фигур -->
-            <label for="select-none" class="placement-area"></label>
+            <!-- ФИГУРЫ ВНИЗУ ПОЛЯ (исходное положение) -->
+            <div class="shapes-container">
+                <!-- Фигуры для елки -->
+                <label class="shape-label" for="select-trunk">
+                    <div class="shape trunk-shape" data-rotation="0" title="Ствол елки"></div>
+                </label>
+                
+                <label class="shape-label" for="select-tier1">
+                    <div class="shape tier1-shape" data-rotation="45" title="Большой ярус"></div>
+                </label>
+                
+                <label class="shape-label" for="select-tier2">
+                    <div class="shape tier2-shape" data-rotation="90" title="Средний ярус"></div>
+                </label>
+                
+                <label class="shape-label" for="select-tier3">
+                    <div class="shape tier3-shape" data-rotation="135" title="Маленький ярус"></div>
+                </label>
+                
+                <!-- Фигуры для домика -->
+                <label class="shape-label" for="select-base">
+                    <div class="shape base-shape" data-rotation="180" title="Основание домика"></div>
+                </label>
+                
+                <label class="shape-label" for="select-roof">
+                    <div class="shape roof-shape" data-rotation="225" title="Крыша домика"></div>
+                </label>
+                
+                <label class="shape-label" for="select-window">
+                    <div class="shape window-shape" data-rotation="270" title="Окно домика">
+                        <div class="window-parts">
+                            <div class="window-top"></div>
+                            <div class="window-left"></div>
+                            <div class="window-right"></div>
+                        </div>
+                    </div>
+                </label>
+            </div>
             
-            <!-- Чекбоксы для проверки завершения -->
+            <!-- СКРЫТЫЕ ЧЕКБОКСЫ ДЛЯ ВЫБОРА ФИГУР -->
+            <input type="radio" name="shape-selector" id="select-none" class="shape-selector" checked>
+            <input type="radio" name="shape-selector" id="select-trunk" class="shape-selector">
+            <input type="radio" name="shape-selector" id="select-tier1" class="shape-selector">
+            <input type="radio" name="shape-selector" id="select-tier2" class="shape-selector">
+            <input type="radio" name="shape-selector" id="select-tier3" class="shape-selector">
+            <input type="radio" name="shape-selector" id="select-base" class="shape-selector">
+            <input type="radio" name="shape-selector" id="select-roof" class="shape-selector">
+            <input type="radio" name="shape-selector" id="select-window" class="shape-selector">
+            
+            <!-- СКРЫТЫЕ ЧЕКБОКСЫ ДЛЯ РАЗМЕЩЕНИЯ -->
+            <input type="checkbox" id="place-trunk" class="placement-check">
+            <input type="checkbox" id="place-tier1" class="placement-check">
+            <input type="checkbox" id="place-tier2" class="placement-check">
+            <input type="checkbox" id="place-tier3" class="placement-check">
+            <input type="checkbox" id="place-base" class="placement-check">
+            <input type="checkbox" id="place-roof" class="placement-check">
+            <input type="checkbox" id="place-window" class="placement-check">
+            
+            <!-- УПРАВЛЕНИЕ СОБРАННЫМИ ФИГУРАМИ -->
             <input type="checkbox" id="tree-complete" class="completion-check">
             <input type="checkbox" id="house-complete" class="completion-check">
             
-            <!-- Сообщение о победе -->
-            <div class="win-message">
-                <h2>🎉 Поздравляем! 🎉</h2>
-                <p>Вы успешно собрали обе фигуры!</p>
-                <button onclick="location.reload()" class="cta-button">Начать заново</button>
+            <!-- СООБЩЕНИЕ О ПОБЕДЕ -->
+            <div class="win-overlay">
+                <div class="win-message">
+                    <h2>🎉 Поздравляем! 🎉</h2>
+                    <p>Вы успешно собрали обе фигуры!</p>
+                    <label for="reset-game" class="cta-button">Начать заново</label>
+                </div>
             </div>
+            
+            <!-- КНОПКА СБРОСА -->
+            <input type="checkbox" id="reset-game" class="reset-check">
         </div>
     </div>
 </main>
