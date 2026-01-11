@@ -43,7 +43,7 @@ button, .cta-button {
 }
 
 button:hover, .cta-button:hover {
-    background-color: #cc1d00;
+    background-color: #191919;
 }
 
 .cta-button {
@@ -248,7 +248,7 @@ button:hover, .cta-button:hover {
     background: white;
     border-radius: 12px;
     padding: 40px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #191919;
     min-height: 450px;
     width: 100%;
 }
@@ -282,7 +282,7 @@ button:hover, .cta-button:hover {
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 15px;
-    color: #333;
+    color: #191919;
 }
 
 .portfolio-text strong {
@@ -315,7 +315,7 @@ button:hover, .cta-button:hover {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: #ddd;
+    background: #191919;
     cursor: pointer;
     border: none;
     transition: background-color 0.3s;
@@ -334,14 +334,15 @@ button:hover, .cta-button:hover {
 
 /* ===== ПОДВАЛ ===== */
 .footer-section {
+    width: 100%;
+    min-height: 400px;
     background: 
         linear-gradient(rgba(25, 25, 25, 0.5), rgba(25, 25, 25, 0.5)),
-        url('../images/footer.png') no-repeat center top;
-    background-size: auto;
-    width: 100%;
+        url('../images/footer.png') no-repeat center center;
+    background-size: cover;
+    display: flex;
     padding: 80px 0 30px;
-    color: white;
-    min-height: 400px;
+    color: #191919;
 }
 
 .footer-content {
