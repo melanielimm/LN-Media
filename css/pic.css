@@ -37,17 +37,17 @@
 .teapot-scene {
     position: relative;
     width: 500px;
-    height: 350px; /* Увеличил высоту для чайника выше */
+    height: 350px;
 }
 
-/* Основной контейнер чайника */
+/* ===== ЧАЙНИК (САМЫЙ НИЖНИЙ СЛОЙ) ===== */
 .teapot {
     position: absolute;
     width: 120px;
     height: 100px;
-    top: 50px; /* Поднял чайник выше! */
+    top: 50px;
     left: 250px;
-    z-index: 10;
+    z-index: 1; /* Чайник ЗА столом */
 }
 
 /* ===== СТОЛ ===== */
@@ -60,11 +60,11 @@
     background: #D7702E;
     top: 124px;
     left: 160px;
-    z-index: 5;
+    z-index: 5; /* Стол ПЕРЕД чайником */
     border-radius: 3px;
 }
 
-/* 2. Средняя ножка */
+/* 2. Средняя ножка (вертикальный эллипс) */
 .table-leg {
     position: absolute;
     width: 32px;
@@ -73,7 +73,7 @@
     top: 132px;
     left: 239px;
     z-index: 4;
-    border-radius: 8px;
+    border-radius: 16px/44.5px; /* Вертикальный эллипс: 32/2=16, 89/2=44.5 */
 }
 
 /* 3. Основание ножки (треугольник) */
@@ -82,7 +82,7 @@
     width: 70px;
     height: 74px;
     background: #D7702E;
-    top: 202px;
+    top: 221px; /* Выровнено со стульями */
     left: 220px;
     z-index: 4;
     clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
@@ -116,22 +116,35 @@
     border-radius: 2px;
 }
 
-/* 3. Результирующая спинка (Subtract) - ТОЛЬКО ОНА НУЖНА! */
-.chair-back {
+/* 3. Спинка стула - разница двух эллипсов */
+.chair-back-container {
     position: absolute;
-    width: 43px;
+    width: 76px;
     height: 164px;
-    background: #D7702E;
     top: 92px;
-    left: 66px;
-    border-top-left-radius: 38px 82px;
-    border-bottom-left-radius: 38px 82px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    left: 33px;
+    overflow: hidden; /* Обрезаем внутренний эллипс */
 }
 
-/* УБИРАЕМ ЛИШНИЕ ЭЛЛИПСЫ! Удаляем или комментируем: */
-/* .chair-back-outer и .chair-back-inner не нужны! */
+.chair-back-outer {
+    position: absolute;
+    width: 76px;
+    height: 164px;
+    background: #D7702E;
+    border-radius: 38px/82px; /* Эллипс 76x164 */
+    left: 0;
+    top: 0;
+}
+
+.chair-back-inner {
+    position: absolute;
+    width: 76px;
+    height: 164px;
+    background: white; /* Цвет фона для "вычитания" */
+    border-radius: 38px/82px;
+    left: 10px; /* Сдвигаем на 10px вправо для вычитания */
+    top: 0;
+}
 
 /* 4. Декоративные круги на стуле */
 .chair-decor {
@@ -139,11 +152,10 @@
     width: 9px;
     height: 9px;
     background: #863903;
-    border-radius: 50%; /* Это КРУГ! */
+    border-radius: 50%;
     top: 179px;
 }
 
-/* Позиционирование каждого круга */
 .decor-1 {
     left: 105px;
 }
@@ -168,7 +180,7 @@
     height: 13px;
     background: #D7702E;
     top: 177px;
-    left: 340px; /* 500 - 106 - 54 = 340px */
+    left: 340px;
     border-radius: 2px;
 }
 
@@ -178,21 +190,38 @@
     height: 67px;
     background: #D7702E;
     top: 190px;
-    left: 344px; /* 500 - 143 - 13 = 344px */
+    left: 344px;
     border-radius: 2px;
 }
 
-.right-chair .chair-back {
+/* Спинка правого стула */
+.right-chair .chair-back-container {
     position: absolute;
-    width: 43px;
+    width: 76px;
+    height: 164px;
+    top: 92px;
+    left: 391px; /* 500 - 33 - 76 = 391px */
+    overflow: hidden;
+}
+
+.right-chair .chair-back-outer {
+    position: absolute;
+    width: 76px;
     height: 164px;
     background: #D7702E;
-    top: 92px;
-    left: 391px; /* 500 - 66 - 43 = 391px */
-    border-top-right-radius: 38px 82px;
-    border-bottom-right-radius: 38px 82px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    border-radius: 38px/82px;
+    left: 0;
+    top: 0;
+}
+
+.right-chair .chair-back-inner {
+    position: absolute;
+    width: 76px;
+    height: 164px;
+    background: white;
+    border-radius: 38px/82px;
+    left: -10px; /* Для правого стула сдвигаем влево */
+    top: 0;
 }
 
 /* Декоративные круги на правом стуле */
@@ -201,26 +230,24 @@
     width: 9px;
     height: 9px;
     background: #863903;
-    border-radius: 50%; /* Круг! */
+    border-radius: 50%;
     top: 179px;
 }
 
-/* Позиционирование каждого круга для правого стула */
 .right-chair .decor-1 {
-    left: 386px; /* 500 - 105 - 9 = 386px */
+    left: 386px;
 }
 
 .right-chair .decor-2 {
-    left: 365px; /* 500 - 126 - 9 = 365px */
+    left: 365px;
 }
 
 .right-chair .decor-3 {
-    left: 344px; /* 500 - 147 - 9 = 344px */
+    left: 344px;
 }
 
 /* ===== ЭЛЕМЕНТЫ ЧАЙНИКА ===== */
 
-/* 1. Тело чайника (главный эллипс) */
 .body {
     position: absolute;
     width: 87px;
@@ -229,10 +256,9 @@
     border-radius: 50%;
     top: 17px;
     left: -39px;
-    z-index: 3;
+    z-index: 1;
 }
 
-/* 2. Крышка чайника */
 .lid {
     position: absolute;
     width: 51px;
@@ -241,7 +267,7 @@
     border-radius: 50%;
     top: 4px;
     left: -21px;
-    z-index: 2;
+    z-index: 1;
     overflow: hidden;
 }
 
@@ -255,7 +281,6 @@
     background: #DF1D40;
 }
 
-/* 3. Ручка крышки */
 .lid-knob {
     position: absolute;
     width: 9px;
@@ -267,7 +292,6 @@
     z-index: 1;
 }
 
-/* 4. Ручка чайника (кольцо) */
 .handle {
     position: absolute;
     width: 26px;
@@ -276,10 +300,9 @@
     border-radius: 50%;
     top: 37px;
     left: 35px;
-    z-index: 2;
+    z-index: 1;
 }
 
-/* 5. Носик чайника */
 .spout {
     position: absolute;
     width: 22px;
