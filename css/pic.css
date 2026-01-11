@@ -89,7 +89,7 @@
     height: 13px;
     background: #D7702E;
     top: 177px;
-    left: 106px;
+    left: 116px; /* было 106px, стало 116px (+10px) */
 }
 
 /* 2. Ножка стула */
@@ -99,30 +99,30 @@
     height: 67px;
     background: #D7702E;
     top: 190px;
-    left: 143px;
+    left: 153px; /* было 143px, стало 153px (+10px) */
 }
 
 /* 3. Спинка стула - разница двух эллипсов */
 .chair-back-outer-left {
-    /* Эллипс 107 (правый, цветной) */
+    /* Эллипс 107: -217 42 */
     position: absolute;
     width: 76px;
     height: 164px;
     background: #D7702E;
     border-radius: 38px/82px;
     top: 92px;
-    left: 33px;
+    left: 43px; /* было 33px, стало 43px (+10px) */
 }
 
 .chair-back-inner-left {
-    /* Эллипс 108 (левый, белый - "вырезает") */
+    /* Эллипс 108: -227 42 */
     position: absolute;
     width: 76px;
     height: 164px;
     background: white; /* Цвет фона для вычитания */
     border-radius: 38px/82px;
     top: 92px;
-    left: 23px;
+    left: 33px; /* было 23px, стало 33px (+10px) */
 }
 
 /* 4. Декоративные круги на стуле */
@@ -133,19 +133,19 @@
     background: #863903;
     border-radius: 50%;
     top: 179px;
-    z-index: 2;
+    z-index: 4; /* Круги поверх эллипсов */
 }
 
 .decor-1 {
-    left: 105px;
+    left: 115px; /* было 105px, стало 115px (+10px) */
 }
 
 .decor-2 {
-    left: 126px;
+    left: 136px; /* было 126px, стало 136px (+10px) */
 }
 
 .decor-3 {
-    left: 147px;
+    left: 157px; /* было 147px, стало 157px (+10px) */
 }
 
 /* ===== ПРАВЫЙ СТУЛ (СИММЕТРИЧНЫЙ) ===== */
