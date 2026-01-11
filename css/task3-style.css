@@ -165,8 +165,6 @@
     animation: none;
     opacity: 1;
     transform: rotate(-33deg);
-    top: 157px;
-    left: 66px;
 }
 
 #flex-toggle:checked + .flex-ad-container .flex-text {
