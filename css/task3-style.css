@@ -72,7 +72,7 @@
     opacity: 0;
     z-index: 3;
     pointer-events: none;
-    transform-origin: top center;
+    transform-origin: 125px 100px;
 }
 
 /* Текст */
@@ -141,13 +141,9 @@
 @keyframes lid-slap {
     0% {
         transform: rotate(0deg);
-        top: 155px;
-        left: 98px;
     }
     100% {
         transform: rotate(-33deg);
-        top: 157px;
-        left: 66px;
     }
 }
 
