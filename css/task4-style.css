@@ -9,7 +9,7 @@
 }
 
 /* ===== РАМКА ===== */
-.flex-frame {
+.frame {
     background: white;
     border-radius: 12px;
     padding: 20px;
@@ -17,7 +17,117 @@
     min-height: 400px;
     width: 100%;
     margin: 0 auto 20px;
+}
+
+/* ===== СТИЛИ ДЛЯ ЗАДАНИЯ DOM ===== */
+.task-section {
+    margin-bottom: 40px;
+}
+
+.task-section h2 {
+    color: #191919;
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #FF2400;
+    padding-bottom: 10px;
+}
+
+/* Таблица */
+.phrases-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.phrases-table th {
+    background-color: #191919;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.phrases-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Стили для строк таблицы */
+.row-color1 {
+    background-color: #CCC0D9;
+}
+
+.row-color2 {
+    background-color: #FBD4B4;
+}
+
+/* Стили для фраз */
+.phrase-container {
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.class1 {
+    background-color: #e6f7ff; /* Голубой */
+    border-left: 4px solid #1890ff;
+}
+
+.class2 {
+    background-color: #f6ffed; /* Зеленый */
+    border-left: 4px solid #52c41a;
+}
+
+.bold-text {
+    font-weight: 700 !important;
+}
+
+/* Кнопки */
+.task-buttons {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.task-button {
+    background-color: #FF2400;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.task-button:hover {
+    background-color: #808080;
+}
+
+.secondary-button {
+    background-color: #191919;
+}
+
+.secondary-button:hover {
+    background-color: #404040;
+}
+
+/* Контейнер для вывода фраз */
+.output-container {
+    min-height: 100px;
+    padding: 20px;
+    border: 2px dashed #808080;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.phrase-item {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
 }
