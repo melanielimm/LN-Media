@@ -90,7 +90,6 @@
     background: #D7702E;
     top: 177px;
     left: 106px;
-    border-radius: 2px;
 }
 
 /* 2. Ножка стула */
@@ -101,7 +100,6 @@
     background: #D7702E;
     top: 190px;
     left: 143px;
-    border-radius: 2px;
 }
 
 /* 3. Спинка стула - разница двух эллипсов */
@@ -163,7 +161,6 @@
     background: #D7702E;
     top: 177px;
     left: 340px;
-    border-radius: 2px;
 }
 
 .right-chair .chair-leg {
@@ -173,7 +170,6 @@
     background: #D7702E;
     top: 190px;
     left: 344px;
-    border-radius: 2px;
 }
 
 /* Спинка правого стула */
