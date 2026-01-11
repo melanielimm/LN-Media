@@ -39,8 +39,10 @@
     <h1 class="page-title">Flexbox-реклама. Вариант 4</h1>
     <div class="frame">
         <div class="flex-frame">
-            <!-- Добавляем tabindex для возможности фокуса -->
-            <div class="flex-ad-container" tabindex="0">
+            <!-- Скрытый чекбокс для переключения состояний -->
+            <input type="checkbox" id="flex-toggle">
+            <!-- Основной контейнер -->
+            <label for="flex-toggle" class="flex-ad-container">
                 <!-- Основное изображение -->
                 <img src="images/ware2.jpg" alt="Набор кастрюль" class="flex-base-img">
                 <!-- Кастрюля -->
@@ -49,7 +51,7 @@
                 <img src="images/ware4.png" alt="Крышка" class="flex-lid">
                 <!-- Текст -->
                 <div class="flex-text">Жаропрочная посуда</div>
-            </div>
+            </label>
         </div>
     </div>
 </main>
