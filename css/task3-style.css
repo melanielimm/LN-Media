@@ -27,9 +27,8 @@
 /* Основной контейнер */
 .flex-ad-container {
     position: relative;
-    width: 400px; /* Исходный размер картинки */
+    width: 400px;
     height: 400px;
-    margin: 40px auto;
     cursor: pointer;
 }
 
@@ -47,22 +46,40 @@
     position: absolute;
     width: 207px;
     height: 209px;
-    top: 155px; /* Исходные координаты по ТЗ */
+    top: 155px;
     left: 66px;
     opacity: 0;
     z-index: 2;
     pointer-events: none;
-    transform-origin: center;
-    transition: all 0.8s ease;
 }
 
-/* При наведении на контейнер */
+/* Непрерывная анимация кастрюли при наведении */
 .flex-ad-container:hover .flex-pot {
-    opacity: 1;
-    width: 231px; /* Увеличение размеров по ТЗ */
-    height: 234px;
-    top: 130px; /* Новые координаты */
-    left: 54px;
+    animation: pot-appear 2s infinite alternate;
+}
+
+@keyframes pot-appear {
+    0% {
+        opacity: 0;
+        width: 207px;
+        height: 209px;
+        top: 155px;
+        left: 66px;
+    }
+    50% {
+        opacity: 1;
+        width: 231px;
+        height: 234px;
+        top: 130px;
+        left: 54px;
+    }
+    100% {
+        opacity: 0;
+        width: 207px;
+        height: 209px;
+        top: 155px;
+        left: 66px;
+    }
 }
 
 /* Крышка, которая возникает при нажатии */
@@ -70,7 +87,7 @@
     position: absolute;
     width: 147px;
     height: 136px;
-    top: 155px; /* Исходные координаты по ТЗ */
+    top: 155px;
     left: 98px;
     opacity: 0;
     z-index: 3;
@@ -78,7 +95,7 @@
     transform-origin: top center;
 }
 
-/* При активации (зажатии ЛКМ) */
+/* При зажатии ЛКМ - крышка хлопает */
 .flex-ad-container:active .flex-lid {
     opacity: 1;
     animation: lid-flap 0.4s ease-in-out infinite alternate;
@@ -97,14 +114,23 @@
     }
 }
 
-/* Текст, который появляется при активации */
+/* Текст и тряска только когда НЕ активна (отпустили ЛКМ) */
+.flex-ad-container:not(:active) .flex-lid {
+    opacity: 1;
+    transform: rotate(-33deg);
+    top: 157px;
+    left: 66px;
+    animation: none;
+}
+
+/* Текст появляется только когда крышка закрыта (не в активном состоянии) */
 .flex-text {
     position: absolute;
     color: #B41517;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 18px;
-    left: -70px; /* Слева от основной картинки */
+    left: -70px;
     top: 50%;
     transform: translateY(-50%) rotate(-90deg);
     white-space: nowrap;
@@ -113,14 +139,13 @@
     pointer-events: none;
 }
 
-/* При активации показываем текст */
-.flex-ad-container:active .flex-text {
+/* Текст виден и тряска когда крышка закрыта */
+.flex-ad-container:not(:active) .flex-text {
     opacity: 1;
-    transition: opacity 0.3s ease 0.1s;
 }
 
-/* Тряска всей системы при активации (только влево-вправо) */
-.flex-ad-container:active {
+/* Тряска всей системы когда крышка закрыта */
+.flex-ad-container:not(:active) {
     animation: horizontal-shake 0.3s linear infinite;
 }
 
