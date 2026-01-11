@@ -30,6 +30,10 @@
     width: 400px;
     height: 400px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none; /* Убираем стандартный outline фокуса */
 }
 
 /* Базовое изображение рекламы */
@@ -41,7 +45,7 @@
     z-index: 1;
 }
 
-/* Кастрюля, которая появляется при наведении */
+/* Кастрюля */
 .flex-pot {
     position: absolute;
     width: 207px;
@@ -51,38 +55,10 @@
     opacity: 0;
     z-index: 2;
     pointer-events: none;
+    transform-origin: center;
 }
 
-/* Непрерывная анимация кастрюли при наведении */
-.flex-ad-container:hover .flex-pot {
-    animation: pot-appear 2s infinite alternate;
-}
-
-@keyframes pot-appear {
-    0% {
-        opacity: 0;
-        width: 207px;
-        height: 209px;
-        top: 155px;
-        left: 66px;
-    }
-    50% {
-        opacity: 1;
-        width: 231px;
-        height: 234px;
-        top: 130px;
-        left: 54px;
-    }
-    100% {
-        opacity: 0;
-        width: 207px;
-        height: 209px;
-        top: 155px;
-        left: 66px;
-    }
-}
-
-/* Крышка, которая возникает при нажатии */
+/* Крышка */
 .flex-lid {
     position: absolute;
     width: 147px;
@@ -95,35 +71,7 @@
     transform-origin: top center;
 }
 
-/* При зажатии ЛКМ - крышка хлопает */
-.flex-ad-container:active .flex-lid {
-    opacity: 1;
-    animation: lid-flap 0.4s ease-in-out infinite alternate;
-}
-
-@keyframes lid-flap {
-    0% {
-        transform: rotate(0deg);
-        top: 155px;
-        left: 98px;
-    }
-    100% {
-        transform: rotate(-33deg);
-        top: 157px;
-        left: 66px;
-    }
-}
-
-/* Текст и тряска только когда НЕ активна (отпустили ЛКМ) */
-.flex-ad-container:not(:active) .flex-lid {
-    opacity: 1;
-    transform: rotate(-33deg);
-    top: 157px;
-    left: 66px;
-    animation: none;
-}
-
-/* Текст появляется только когда крышка закрыта (не в активном состоянии) */
+/* Текст */
 .flex-text {
     position: absolute;
     color: #B41517;
@@ -139,14 +87,92 @@
     pointer-events: none;
 }
 
-/* Текст виден и тряска когда крышка закрыта */
-.flex-ad-container:not(:active) .flex-text {
+/* ===== СОСТОЯНИЯ ===== */
+
+/* 1. При наведении - пульсация кастрюли */
+.flex-ad-container:hover .flex-pot {
+    opacity: 1;
+    animation: pot-pulse 2s infinite;
+}
+
+@keyframes pot-pulse {
+    0% {
+        opacity: 0.8;
+        width: 207px;
+        height: 209px;
+        top: 155px;
+        left: 66px;
+    }
+    50% {
+        opacity: 1;
+        width: 231px;
+        height: 234px;
+        top: 130px;
+        left: 54px;
+    }
+    100% {
+        opacity: 0.8;
+        width: 207px;
+        height: 209px;
+        top: 155px;
+        left: 66px;
+    }
+}
+
+/* 2. При активации (клике и удерживании) */
+.flex-ad-container:active .flex-pot,
+.flex-ad-container:focus .flex-pot {
+    animation: none;
+    opacity: 1;
+    width: 207px;
+    height: 209px;
+    top: 155px;
+    left: 66px;
+}
+
+.flex-ad-container:active .flex-lid,
+.flex-ad-container:focus .flex-lid {
+    opacity: 1;
+    animation: lid-slap 0.7s infinite alternate;
+}
+
+@keyframes lid-slap {
+    0% {
+        transform: rotate(0deg);
+        top: 155px;
+        left: 98px;
+    }
+    100% {
+        transform: rotate(-33deg);
+        top: 157px;
+        left: 66px;
+    }
+}
+
+/* 3. Конечное состояние (после фокуса - когда отпустили) */
+.flex-ad-container:focus .flex-pot {
+    animation: none;
+    opacity: 1;
+    width: 207px;
+    height: 209px;
+    top: 155px;
+    left: 66px;
+}
+
+.flex-ad-container:focus .flex-lid {
+    animation: none;
+    opacity: 1;
+    transform: rotate(-33deg);
+    top: 157px;
+    left: 66px;
+}
+
+.flex-ad-container:focus .flex-text {
     opacity: 1;
 }
 
-/* Тряска всей системы когда крышка закрыта */
-.flex-ad-container:not(:active) {
-    animation: horizontal-shake 0.3s linear infinite;
+.flex-ad-container:focus {
+    animation: horizontal-shake 0.5s infinite;
 }
 
 @keyframes horizontal-shake {
@@ -154,13 +180,13 @@
         transform: translateX(0);
     }
     25% {
-        transform: translateX(3px);
+        transform: translateX(-8px);
     }
     50% {
-        transform: translateX(0);
+        transform: translateX(8px);
     }
     75% {
-        transform: translateX(-3px);
+        transform: translateX(-8px);
     }
     100% {
         transform: translateX(0);
