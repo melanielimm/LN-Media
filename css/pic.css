@@ -8,32 +8,21 @@
     position: relative;
 }
 
-.page-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background: #FF2400;
-}
-
 /* ===== РАМКА ДЛЯ РИСУНКА ===== */
 .teapot-frame {
     background: white;
     border-radius: 12px;
-    padding: 40px;
+    padding: 20px;
     border: 1px solid #808080;
-    min-height: 500px;
+    min-height: 400px;
     width: 100%;
-    margin: 0 auto 80px;
+    margin: 0 auto 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* ===== СЦЕНА С ЧАЙНИКОМ И СТОЛОМ ===== */
+/* ===== РИСУНОК С ЧАЙНИКОМ, СТОЛОМ И СТУЛЬЯМИ ===== */
 .teapot-scene {
     position: relative;
     width: 500px;
@@ -47,7 +36,7 @@
     height: 100px;
     top: 50px;
     left: 250px;
-    z-index: 1; /* Чайник ЗА столом */
+    z-index: 3;
 }
 
 /* ===== СТОЛ ===== */
@@ -60,8 +49,7 @@
     background: #D7702E;
     top: 124px;
     left: 160px;
-    z-index: 5; /* Стол ПЕРЕД чайником */
-    border-radius: 3px;
+    z-index: 4; /* Стол ПЕРЕД чайником */
 }
 
 /* 2. Средняя ножка (вертикальный эллипс) */
@@ -72,8 +60,8 @@
     background: #D7702E;
     top: 132px;
     left: 239px;
-    z-index: 4;
-    border-radius: 16px/44.5px; /* Вертикальный эллипс: 32/2=16, 89/2=44.5 */
+    z-index: 3;
+    border-radius: 16px/44.5px;
 }
 
 /* 3. Основание ножки (треугольник) */
@@ -82,9 +70,9 @@
     width: 70px;
     height: 74px;
     background: #D7702E;
-    top: 221px; /* Выровнено со стульями */
+    top: 190px;
     left: 220px;
-    z-index: 4;
+    z-index: 2;
     clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
 }
 
@@ -130,19 +118,20 @@
     position: absolute;
     width: 76px;
     height: 164px;
-    background: #D7702E;
-    border-radius: 38px/82px; /* Эллипс 76x164 */
-    left: 0;
+    background: white; /* Цвет фона для "вычитания" */
+    border-radius: 38px/82px;
+    left: 10px; /* Сдвигаем на 10px вправо для вычитания */
     top: 0;
+
 }
 
 .chair-back-inner {
     position: absolute;
     width: 76px;
     height: 164px;
-    background: white; /* Цвет фона для "вычитания" */
-    border-radius: 38px/82px;
-    left: 10px; /* Сдвигаем на 10px вправо для вычитания */
+    background: #D7702E;
+    border-radius: 38px/82px; /* Эллипс 76x164 */
+    left: 0;
     top: 0;
 }
 
@@ -154,6 +143,7 @@
     background: #863903;
     border-radius: 50%;
     top: 179px;
+    z-index: 2;
 }
 
 .decor-1 {
@@ -208,9 +198,9 @@
     position: absolute;
     width: 76px;
     height: 164px;
-    background: #D7702E;
+    background: white;
     border-radius: 38px/82px;
-    left: 0;
+    left: -10px; /* Для правого стула сдвигаем влево */
     top: 0;
 }
 
@@ -218,9 +208,9 @@
     position: absolute;
     width: 76px;
     height: 164px;
-    background: white;
+    background: #D7702E;
     border-radius: 38px/82px;
-    left: -10px; /* Для правого стула сдвигаем влево */
+    left: 0;
     top: 0;
 }
 
@@ -232,6 +222,7 @@
     background: #863903;
     border-radius: 50%;
     top: 179px;
+    z-index: 2;
 }
 
 .right-chair .decor-1 {
@@ -256,7 +247,7 @@
     border-radius: 50%;
     top: 17px;
     left: -39px;
-    z-index: 1;
+    z-index: 3;
 }
 
 .lid {
@@ -267,7 +258,7 @@
     border-radius: 50%;
     top: 4px;
     left: -21px;
-    z-index: 1;
+    z-index: 2;
     overflow: hidden;
 }
 
@@ -300,7 +291,7 @@
     border-radius: 50%;
     top: 37px;
     left: 35px;
-    z-index: 1;
+    z-index: 2;
 }
 
 .spout {
@@ -312,5 +303,5 @@
     top: 40px;
     left: -50px;
     z-index: 1;
-    border-radius: 3px;
+    border-radius: 2px;
 }
