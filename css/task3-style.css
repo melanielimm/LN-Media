@@ -22,32 +22,24 @@
     align-items: center;
 }
 
-/* ===== СТИЛИ ДЛЯ ЗАДАНИЯ ===== */
+/* ===== СТИЛИ ДЛЯ ЗАДАНИЯ 3 ===== */
 
-/* Контейнер для флекс-рекламы */
+/* Основной контейнер */
 .flex-ad-container {
-    width: 200px; /* максимальный размер по заданию */
-    height: 200px;
-    margin: 40px auto; /* центрируем */
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    border-radius: 12px;
+    width: 400px; /* Исходный размер картинки */
+    height: 400px;
+    margin: 40px auto;
     cursor: pointer;
 }
 
-/* Базовое изображение рекламы (набор кастрюль) */
+/* Базовое изображение рекламы */
 .flex-base-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* чтобы изображение заполнило контейнер */
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: block;
+    position: relative;
     z-index: 1;
-    transition: opacity 0.5s ease;
 }
 
 /* Кастрюля, которая появляется при наведении */
@@ -55,24 +47,22 @@
     position: absolute;
     width: 207px;
     height: 209px;
-    top: 155px;
+    top: 155px; /* Исходные координаты по ТЗ */
     left: 66px;
     opacity: 0;
     z-index: 2;
     pointer-events: none;
     transform-origin: center;
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition: all 0.8s ease;
 }
 
 /* При наведении на контейнер */
 .flex-ad-container:hover .flex-pot {
     opacity: 1;
-    transform: scale(1.115) translate(-12px, -25px); /* примерно 231x234 и сдвиг в 54 130 */
-}
-
-/* При уходе курсора - плавное возвращение */
-.flex-ad-container:not(:hover) .flex-pot {
-    transition: opacity 0.8s ease, transform 1.2s ease;
+    width: 231px; /* Увеличение размеров по ТЗ */
+    height: 234px;
+    top: 130px; /* Новые координаты */
+    left: 54px;
 }
 
 /* Крышка, которая возникает при нажатии */
@@ -80,32 +70,30 @@
     position: absolute;
     width: 147px;
     height: 136px;
-    top: 155px;
+    top: 155px; /* Исходные координаты по ТЗ */
     left: 98px;
     opacity: 0;
     z-index: 3;
     pointer-events: none;
     transform-origin: top center;
-    transition: opacity 0.2s ease, transform 0.3s ease;
 }
 
 /* При активации (зажатии ЛКМ) */
 .flex-ad-container:active .flex-lid {
     opacity: 1;
-    transform: rotate(-33deg) translate(-32px, 2px); /* 66 157 */
-}
-
-/* При удержании - анимация "хлопка" */
-.flex-ad-container:active .flex-lid {
     animation: lid-flap 0.4s ease-in-out infinite alternate;
 }
 
 @keyframes lid-flap {
     0% {
-        transform: rotate(0deg) translate(0, 0);
+        transform: rotate(0deg);
+        top: 155px;
+        left: 98px;
     }
     100% {
-        transform: rotate(-33deg) translate(-32px, 2px);
+        transform: rotate(-33deg);
+        top: 157px;
+        left: 66px;
     }
 }
 
@@ -116,7 +104,7 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 18px;
-    left: -50px; /* выносим влево от картинки */
+    left: -70px; /* Слева от основной картинки */
     top: 50%;
     transform: translateY(-50%) rotate(-90deg);
     white-space: nowrap;
@@ -131,25 +119,25 @@
     transition: opacity 0.3s ease 0.1s;
 }
 
-/* Тряска всей системы при активации */
+/* Тряска всей системы при активации (только влево-вправо) */
 .flex-ad-container:active {
-    animation: circle-shake 0.55s linear infinite;
+    animation: horizontal-shake 0.3s linear infinite;
 }
 
-@keyframes circle-shake {
+@keyframes horizontal-shake {
     0% {
-        transform: translate(0, 0) rotate(0deg) scale(1);
+        transform: translateX(0);
     }
     25% {
-        transform: translate(3px, -3px) rotate(3deg) scale(1);
+        transform: translateX(3px);
     }
     50% {
-        transform: translate(0, -5px) rotate(0deg) scale(1);
+        transform: translateX(0);
     }
     75% {
-        transform: translate(-3px, -3px) rotate(-3deg) scale(1);
+        transform: translateX(-3px);
     }
     100% {
-        transform: translate(0, 0) rotate(0deg) scale(1);
+        transform: translateX(0);
     }
 }
