@@ -105,34 +105,26 @@
 }
 
 /* 3. Спинка стула - разница двух эллипсов */
-.chair-back-container {
-    position: absolute;
-    width: 76px;
-    height: 164px;
-    top: 92px;
-    left: 33px;
-    overflow: hidden; /* Обрезаем внутренний эллипс */
-}
-
-.chair-back-outer {
+.chair-back-outer-left {
+    /* Эллипс 107 (правый, цветной) */
     position: absolute;
     width: 76px;
     height: 164px;
     background: #D7702E;
     border-radius: 38px/82px;
-    left: 0px; /* Сдвигаем на 10px вправо для вычитания */
-    top: 0;
-
+    top: 92px;
+    left: 66px; /* 33px + 33px = 66px */
 }
 
-.chair-back-inner {
+.chair-back-inner-left {
+    /* Эллипс 108 (левый, белый - "вырезает") */
     position: absolute;
     width: 76px;
     height: 164px;
-    background: white;
-    border-radius: 38px/82px; /* Эллипс 76x164 */
-    left: -10px
-    top: 0;
+    background: white; /* Цвет фона для вычитания */
+    border-radius: 38px/82px;
+    top: 92px;
+    left: 33px; /* Сдвинут на 33px влево относительно цветного */
 }
 
 /* 4. Декоративные круги на стуле */
@@ -185,33 +177,26 @@
 }
 
 /* Спинка правого стула */
-.right-chair .chair-back-container {
-    position: absolute;
-    width: 76px;
-    height: 164px;
-    top: 92px;
-    left: 391px; /* 500 - 33 - 76 = 391px */
-    overflow: hidden;
-}
-
-.right-chair .chair-back-outer {
+.chair-back-outer-right {
+    /* Эллипс 107 (левый, цветной) */
     position: absolute;
     width: 76px;
     height: 164px;
     background: #D7702E;
     border-radius: 38px/82px;
-    left: 10px; /* Для правого стула сдвигаем влево */
-    top: 0;
+    top: 92px;
+    left: 358px; /* 500 - 33 - 76 - 33 = 358 */
 }
 
-.right-chair .chair-back-inner {
+.chair-back-inner-right {
+    /* Эллипс 108 (правый, белый - "вырезает") */
     position: absolute;
     width: 76px;
     height: 164px;
-    background: white;
+    background: white; /* Цвет фона для вычитания */
     border-radius: 38px/82px;
-    left: 0px;
-    top: 0;
+    top: 92px;
+    left: 391px; /* 500 - 33 - 76 = 391, сдвинут на 33px вправо относительно цветного */
 }
 
 /* Декоративные круги на правом стуле */
