@@ -1,75 +1,102 @@
-/* Холст для рисунка */
-.teapot-scene {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 50px auto;
-  border: 1px dashed #ccc; /* рамка для наглядности */
+/* Сброс отступов */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Стол */
-.table {
-  position: absolute;
-  bottom: 0;
-  left: 20px;
-  width: 160px;
-  height: 15px;
-  background: #8B4513; /* коричневый */
-  border-radius: 5px 5px 0 0;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
 }
 
-/* Основание чайника */
-.teapot-body {
-  position: absolute;
-  bottom: 15px; /* стоит на столе */
-  left: 70px;
-  width: 60px;
-  height: 40px;
-  background: #2E8B57; /* зеленый */
-  border-radius: 10px 10px 20px 20px;
+/* Контейнер для центрирования */
+.teapot-container {
+    position: relative;
+    width: 150px;
+    height: 100px;
 }
 
-/* Крышка чайника */
-.teapot-lid {
-  position: absolute;
-  bottom: 55px;
-  left: 75px;
-  width: 50px;
-  height: 10px;
-  background: #228B22; /* темно-зеленый */
-  border-radius: 5px;
+/* Основной контейнер чайника */
+.teapot {
+    position: relative;
+    width: 100px;
+    height: 80px;
 }
 
-/* Носик чайника (треугольник) */
-.teapot-spout {
-  position: absolute;
-  bottom: 35px;
-  left: 130px;
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 20px solid #228B22;
+/* 1. Тело чайника (главный эллипс) */
+.body {
+    position: absolute;
+    width: 87px;
+    height: 65px;
+    background: radial-gradient(61.49% 73.3% at 38.51% 50.77%, #FFFFFF 0%, #DF1D40 100%);
+    border-radius: 50%;
+    top: 17px;
+    left: -39px;
+    z-index: 3; /* Самый верхний слой из основных */
 }
 
-/* Стул 1 */
-.chair-1 {
-  position: absolute;
-  bottom: 15px;
-  left: 10px;
-  width: 30px;
-  height: 30px;
-  background: #A0522D; /* светло-коричневый */
-  border-radius: 5px;
+/* 2. Крышка чайника */
+.lid {
+    position: absolute;
+    width: 51px;
+    height: 38px;
+    background: radial-gradient(67.65% 80.64% at 25.49% 28.95%, #FFFFFF 0%, #DF1D40 100%);
+    border-radius: 50%;
+    top: 4px;
+    left: -21px;
+    z-index: 2; /* Под телом */
+    
+    /* Обрезаем нижнюю половину */
+    overflow: hidden;
 }
 
-/* Стул 2 */
-.chair-2 {
-  position: absolute;
-  bottom: 15px;
-  right: 10px;
-  width: 30px;
-  height: 30px;
-  background: #DEB887; /* бежевый */
-  border-radius: 5px;
+.lid::after {
+    content: '';
+    position: absolute;
+    bottom: -19px;
+    left: 0;
+    width: 100%;
+    height: 19px;
+    background: #DF1D40;
+}
+
+/* 3. Ручка крышки */
+.lid-knob {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background: #DF1D40;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Самый нижний */
+}
+
+/* 4. Ручка чайника (кольцо) */
+.handle {
+    position: absolute;
+    width: 26px;
+    height: 25px;
+    border: 2px solid #DF1D40;
+    border-radius: 50%;
+    top: 37px;
+    left: 35px;
+    z-index: 2; /* Под телом чайника */
+}
+
+/* 5. Носик чайника */
+.spout {
+    position: absolute;
+    width: 22px;
+    height: 6px;
+    background: #DF1D40;
+    transform: rotate(26.12deg);
+    top: 40px;
+    left: -50px;
+    z-index: 1; /* Самый нижний слой */
+    border-radius: 3px;
 }
