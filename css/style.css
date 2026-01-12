@@ -481,14 +481,26 @@ button:hover, .cta-button:hover {
     .container {
         padding: 0 20px;
     }
+
+    .header-fixed .container {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }    
     
     .main-menu {
-        gap: 20px;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     
     .main-menu a {
-        font-size: 16px;
+        font-size: 14px;
     }
+
+    .header-contacts .phone {
+        display: none;
+    }    
     
     .hero h1 {
         font-size: 36px;
