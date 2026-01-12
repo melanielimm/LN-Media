@@ -1,178 +1,26 @@
-/* Логотип для футера */
-.footer-logo {
-    margin-bottom: 40px;
+.ln-logo-minimal {
     position: relative;
-    width: 368px;
-    height: 240px;
+    width: 250px;
+    height: 150px;
 }
 
-/* Буква N - Упрощенная версия для футера */
-.footer-letter-n {
-    position: absolute;
-    width: 230px;
-    height: 175px;
-    left: 110px;
-    top: 54px;
-    background: linear-gradient(18.37deg, #000000 16.18%, #FFFFFF 49.21%, #FF2400 96.26%);
-    border: 3px solid #000000;
-    clip-path: polygon(
-        15% 0%, 20% 5%, 20% 95%, 
-        45% 40%, 50% 35%, 55% 40%,
-        80% 95%, 80% 5%, 85% 0%,
-        75% 0%, 75% 100%, 50% 45%,
-        25% 100%, 25% 0%
-    );
+.ln-logo-minimal .letter-l-thick {
+    width: 100px;
+    height: 150px;
+    background: linear-gradient(195.49deg, #000000 20%, #FF2400 100%);
 }
 
-.footer-n-vertical-left {
-    position: absolute;
-    width: 30px;
-    height: 176px;
+.ln-logo-minimal .letter-n-thick {
+    width: 125px;
+    height: 150px;
     left: 125px;
-    top: 53px;
-    background: #000000;
-    border-radius: 8px;
-    transform: rotate(15deg);
+    background: linear-gradient(18.37deg, #000000 20%, #FF2400 100%);
 }
 
-.footer-n-vertical-right {
-    position: absolute;
+.ln-logo-minimal .ln-connector {
     width: 30px;
-    height: 176px;
-    left: 245px;
-    top: 53px;
-    background: #000000;
-    border-radius: 8px;
-    transform: rotate(15deg);
-}
-
-.footer-n-diagonal {
-    position: absolute;
-    width: 44px;
-    height: 164px;
-    left: 158px;
-    top: 58px;
-    background: #000000;
-    border-radius: 8px;
-    transform: rotate(-30deg);
-}
-
-/* Буква L - Упрощенная версия для футера */
-.footer-letter-l {
-    position: absolute;
-    width: 189px;
-    height: 186px;
-    left: 24px;
-    top: 29px;
-    background: linear-gradient(195.49deg, #000000 9.88%, #FFFFFF 51.85%, #FF2400 94.05%);
-    border: 3px solid #000000;
-    clip-path: polygon(
-        0% 25%, 10% 20%, 90% 20%,
-        90% 25%, 15% 25%, 15% 95%,
-        85% 95%, 85% 100%, 10% 100%
-    );
-}
-
-.footer-l-vertical {
-    position: absolute;
-    width: 44px;
-    height: 176px;
-    left: 57px;
-    top: 29px;
-    background: #000000;
-    border-radius: 8px;
-    transform: rotate(15deg);
-}
-
-.footer-l-horizontal {
-    position: absolute;
-    width: 30px;
-    height: 169px;
-    left: 28px;
-    top: 186px;
-    background: #000000;
-    border-radius: 8px;
-    transform: rotate(-90deg);
-}
-
-.footer-l-corner-detail {
-    position: absolute;
-    width: 46px;
-    height: 67px;
-    left: 33px;
-    top: 121px;
-    background: #000000;
-    clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
-}
-
-/* Декоративный элемент (упрощенный) */
-.footer-mask-element {
-    position: absolute;
-    width: 15px;
-    height: 43px;
-    left: 192px;
-    top: 128px;
-    background: #FFFFFF;
-    border-radius: 7px;
-    transform: rotate(-30deg);
-    overflow: hidden;
-}
-
-.footer-mask-line {
-    position: absolute;
-    width: 25px;
-    height: 3px;
-    left: 195px;
-    top: 148px;
-    background: #000000;
-    transform: rotate(60deg);
-}
-
-/* Для темной темы сайта */
-@media (prefers-color-scheme: dark) {
-    .footer-letter-n,
-    .footer-letter-l {
-        border-color: #fff;
-    }
-    
-    .footer-n-vertical-left,
-    .footer-n-vertical-right,
-    .footer-n-diagonal,
-    .footer-l-vertical,
-    .footer-l-horizontal,
-    .footer-l-corner-detail,
-    .footer-mask-line {
-        background: #fff;
-    }
-    
-    .footer-mask-element {
-        background: #000;
-    }
-}
-
-/* Адаптивность для мобильных */
-@media (max-width: 768px) {
-    .footer-logo {
-        width: 276px;
-        height: 180px;
-        transform: scale(0.75);
-        transform-origin: left top;
-    }
-    
-    .footer-logo {
-        margin-bottom: 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    .footer-logo {
-        width: 184px;
-        height: 120px;
-        transform: scale(0.5);
-        transform-origin: left top;
-    }
-    
-    .footer-logo {
-        margin-bottom: 20px;
-    }
+    height: 150px;
+    left: 100px;
+    background: #FF2400;
+    opacity: 0.9;
 }
