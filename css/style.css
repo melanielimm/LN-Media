@@ -8,8 +8,6 @@
 
 html, body {
     width: 100%;
-    overflow-x: hidden;
-    background-color: white;
 }
 
 .container {
@@ -23,10 +21,11 @@ h2 {
     text-align: center;
     font-size: 32px;
     margin-bottom: 40px;
-    position: relative;
 }
 
 img {
+    max-width: 100%;
+    height: auto;
     border-radius: 12px;
 }
 
@@ -77,19 +76,16 @@ button:hover, .cta-button:hover {
     padding: 0;
 }
 
-.main-menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 600;
-    transition: color 0.3s;
-}
-
 .main-menu li {
     color: white;
     text-decoration: none;
     font-size: 18px;
     font-weight: 600;
+}
+
+.main-menu a {
+    color: inherit;
+    transition: color 0.3s;
 }
 
 .main-menu a:hover {
@@ -377,7 +373,7 @@ button:hover, .cta-button:hover {
     border-radius: 12px;
     padding: 30px;
     margin-bottom: 30px;
-    width: 400px;
+    max-width: 400px;
     margin-left: auto;
 }
 
@@ -410,12 +406,7 @@ button:hover, .cta-button:hover {
 .social-icon {
     width: 36px;
     height: 36px;
-    transition: all 0.3s ease;
-    opacity: 0.8;
-}
-
-.social-icon:hover {
-    background-color: #FF2400;
+    cursor: pointer;
 }
 
 .copyright {
@@ -437,7 +428,7 @@ button:hover, .cta-button:hover {
     
     .about-text h2 {
         text-align: center;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
     }
     
     .services-list {
