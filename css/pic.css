@@ -289,3 +289,9 @@
     border-radius: 2px;
 }
 
+@media (max-width: 768px) {
+    .teapot-scene {
+        max-width: 400px;
+        height: 280px;
+    }
+}
