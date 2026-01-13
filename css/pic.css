@@ -290,8 +290,18 @@
 }
 
 @media (max-width: 768px) {
+    /* Сжимаем фрейм */
+    .teapot-frame {
+        max-width: 90%;
+        margin: 0 auto 20px;
+        padding: 15px;
+    }
+    
+    /* Центрируем и уменьшаем сцену */
     .teapot-scene {
+        width: 100%;
         max-width: 400px;
         height: 280px;
+        margin: 0 auto;
     }
 }
